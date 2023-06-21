@@ -1,0 +1,30 @@
+// font-family: "Roboto", sans-serif;
+// font-family: "Roboto Condensed", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  resize: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+body {
+  font-family: " Roboto", sans-serif;
+}
+a {
+  cursor: pointer;
+  position: relative;
+}
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+:root {
+  --text-color: #414141;
+  --second-text-color: #686868;
+}
+
+@import "header";
+@import "footer";
