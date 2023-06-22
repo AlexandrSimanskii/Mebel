@@ -55,8 +55,8 @@ const Header = () => {
         </div>
         <div className="header__nav">
           <ul className="header__nav-list">
-            <li className="nav-list-kitchen">
-              <a href="#">Кухни</a>
+            <li className="  nav-list-kitchen b">
+              <a className="active" href="#">Кухни</a>
             </li>
             <li className="nav-list-bedroom">
               <a href="#">Спальни</a>

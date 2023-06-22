@@ -2,45 +2,64 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
-       
         <div className="footer-nav">
-          <h2 className="footer-title">Навигация</h2>
-          <ul className="footer-list">
-            <li>
-              <a href="#">Кухни </a>
-            </li>
-            <li>
-              <a href="#">Прихожие</a>
-            </li>
-            <li>
-              <a href="#">Шкафы</a>
-            </li>
-            <li>
-              <a href="#">Спальни</a>
-            </li>
-
-            <li>
-              <a href="#">Офисная мебель </a>
-            </li>
-            <li>
-              <a href="#">Матрасы</a>
-            </li>
-            <li>
-              <a href="#">Гостинные </a>
-              
-            </li>
-            <li><a href="#"> Детская</a></li>
-            <li>
-              <a href="#">Мягкая мебель</a>
-            </li>
-            <li>
-              <a href="#">Акция</a>
-            </li>
-            <li>
-              <a href="#">Новинки</a>
-            </li>
-            <li ><a className="footer-tell" href="#">8 (964) 89 99 119</a></li>
-          </ul>
+          <table className="footer__table">
+            <caption>Навигация</caption>
+            <tr>
+              <td>
+                <a href="#">Кухни </a>
+              </td>
+              <td>
+                <a href="#">Прихожие</a>
+              </td>
+              <td>
+                <a href="#">Шкафы</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#">Спальни</a>
+              </td>
+              <td>
+                <a href="#">Офисная мебель </a>
+              </td>
+              <td>
+                <a href="#">Матрасы</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#">Гостинные </a>
+              </td>
+              <td>
+                <a href="#"> Детская</a>
+              </td>
+              <td>
+                <a href="#">Мягкая мебель</a>
+              </td>
+            </tr>{" "}
+            <tr>
+              <td>
+                <a href="#">Акция</a>
+              </td>
+              <td>
+                <a href="#">Новинки</a>
+              </td>
+            </tr>
+          </table>
+          <div className="inform">
+            <h2 className="inform-title">LM</h2>
+            <p className="adress">
+              г. Анапа, Анапское шоссе,
+              <br />
+              30 Ж/К Черное море
+            </p>
+            <div className="bottom-line">
+              <p className="phone"><a href="#">8 (964) 89 99 119</a></p>
+              <p className="insta"><a href="#">INSTAGRAM</a></p>
+              <p className="mail"><a href="#">mebel_loft_anapa@mail.ru</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
