@@ -12,6 +12,11 @@
 body {
   font-family: " Roboto", sans-serif;
 }
+:root {
+  --text-color: #414141;
+  --second-text-color: #686868;
+  --color-active: #d74444;
+}
 a {
   cursor: pointer;
   position: relative;
@@ -21,10 +26,12 @@ a {
   margin: 0 auto;
   padding: 0 20px;
 }
-:root {
-  --text-color: #414141;
-  --second-text-color: #686868;
+.active {
+  color: var(--color-active) !important;
 }
 
 @import "header";
 @import "footer";
+@import "home";
+@import "swiper";
+@import "card";

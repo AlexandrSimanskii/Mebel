@@ -37,10 +37,10 @@ const Footer = () => {
               <td>
                 <a href="#">Мягкая мебель</a>
               </td>
-            </tr>{" "}
+            </tr>
             <tr>
               <td>
-                <a href="#">Акция</a>
+                <a  className="active" href="#">Акция</a>
               </td>
               <td>
                 <a href="#">Новинки</a>

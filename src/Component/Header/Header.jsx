@@ -48,15 +48,26 @@ const Header = () => {
             <input placeholder="Поиск" type="text" />
           </div>
           <div className="header-menu">
-            <img src="../../../public/images/icons/wishlist-icon.svg" alt="" />
-            <img src="../../../public/images/icons/bag.svg" alt="" />
-            <img src="../../../public/images/icons/profile-icon.svg" alt="" />
+            <div className="menu-img active">
+              <img
+                src="../../../public/images/icons/wishlist-icon.svg"
+                alt=""
+              />
+            </div>
+            <div className="menu-img">
+              <img src="../../../public/images/icons/bag.svg" alt="" />
+            </div>
+            <div className="menu-img">
+              <img src="../../../public/images/icons/profile-icon.svg" alt="" />
+            </div>
           </div>
         </div>
         <div className="header__nav">
           <ul className="header__nav-list">
             <li className="  nav-list-kitchen b">
-              <a className="active" href="#">Кухни</a>
+              <a  href="#">
+                Кухни
+              </a>
             </li>
             <li className="nav-list-bedroom">
               <a href="#">Спальни</a>
@@ -74,7 +85,7 @@ const Header = () => {
               <a href="#">Детские</a>
             </li>
             <li className="nav-list-sale">
-              <a href="#">Акция</a>
+              <a className="active" href="#">Акция</a>
             </li>
             <li className="nav-list-new">
               <a href="#">Новинки</a>

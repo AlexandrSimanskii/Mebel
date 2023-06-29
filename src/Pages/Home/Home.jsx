@@ -1,11 +1,13 @@
-// import React from 'react';
-
+import Baner from "./Baner";
+import Cards from "./Cards/Cards"
 const Home = () => {
-    return (
-        <div>
-          Home
-        </div>
-    );
+  return (
+    <>
+      <Baner />
+      <Cards/>
+ 
+    </>
+  );
 };
 
 export default Home;

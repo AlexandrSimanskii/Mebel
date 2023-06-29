@@ -1,0 +1,71 @@
+.banner {
+  &__info {
+    background: url("../../public/images/image/Main-Img.png");
+    height: 32rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 7rem 0 0 9rem;
+  }
+  &__title {
+    color: #3c3c3c;
+    font-size: 3.57143rem;
+    font-family: Playfair Display;
+    font-weight: 700;
+    line-height: 105.3%;
+    letter-spacing: 0.07143rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  &__text {
+    color: #343434;
+    font-size: 1.14286rem;
+    font-family: Roboto Condensed;
+    line-height: 140.8%;
+    letter-spacing: 0.02286rem;
+    margin-bottom: 1.8rem;
+  }
+  &__btn {
+    color: var(--text-color, #414141);
+    font-size: 0.85714rem;
+    font-family: Roboto Condensed;
+    font-weight: 700;
+    background-color: #fff;
+    letter-spacing: 0.03429rem;
+    padding: 1rem 1.79rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.7s;
+    border: none; box-shadow: 0 0 2px 0;
+
+    &:hover{
+     
+      opacity: 0.9;
+    }
+    &:active{
+      box-shadow: inset 0 0 2px 0;
+    }
+  }
+
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 10px !important;
+  color: #000 !important;
+  font-weight: bolder !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: #fff;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 5px;
+  margin: 25px;
+}
+.swiper-button-next {
+  background-color: #9d9d9d;
+}
+.swiper-pagination-bullet-active {
+  background-color: #000 !important;
+}
