@@ -11,6 +11,7 @@
 }
 body {
   font-family: " Roboto", sans-serif;
+  font-style: normal;
 }
 :root {
   --text-color: #414141;
@@ -35,3 +36,4 @@ a {
 @import "home";
 @import "swiper";
 @import "card";
+@import "form";

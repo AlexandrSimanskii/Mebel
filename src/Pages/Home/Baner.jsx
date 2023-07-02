@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/scss";
+import "swiper/scss/navigation";
 import "swiper/css/pagination";
 
 const Banner = () => {
@@ -18,6 +18,7 @@ const Banner = () => {
           className="mySwiper"
         >
           <SwiperSlide>
+            <img src="../../../public/images/image/Main-Img.png" alt="" />
             <div className="banner__info">
               <h2 className="banner__title">
                 loft <br />
@@ -30,6 +31,7 @@ const Banner = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
+            <img src="../../../public/images/image/img2.jpg" alt="" />
             <div className="banner__info">
               <h2 className="banner__title">
                 loft <br />
@@ -42,6 +44,7 @@ const Banner = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
+            
             <div className="banner__info">
               <h2 className="banner__title">
                 loft <br />

@@ -1,5 +1,15 @@
 .banner {
+img{
+background: url(../../public/images/image/Main-Img.png);
+  width: 100%;
+  height: 100%;
+  z-index: -4;
+  position: absolute;
+ 
+}
   &__info {
+    position: relative;
+    z-index: -20;
     background: url("../../public/images/image/Main-Img.png");
     height: 32rem;
     background-repeat: no-repeat;
@@ -36,17 +46,16 @@
     border-radius: 4px;
     cursor: pointer;
     transition: 0.7s;
-    border: none; box-shadow: 0 0 2px 0;
+    border: none;
+    box-shadow: 0 0 2px 0;
 
-    &:hover{
-     
+    &:hover {
       opacity: 0.9;
     }
-    &:active{
+    &:active {
       box-shadow: inset 0 0 2px 0;
     }
   }
-
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {

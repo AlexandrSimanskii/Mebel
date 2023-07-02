@@ -1,4 +1,12 @@
+import { Link, useLocation } from "react-router-dom";
+
+
 const Header = () => {
+
+const {pathname} = useLocation()
+console.log(pathname);
+
+
   return (
     <div className="header">
       <div className="header__top">
@@ -51,14 +59,14 @@ const Header = () => {
             <div className="menu-img active">
               <img
                 src="../../../public/images/icons/wishlist-icon.svg"
-                alt=""
+                alt="heart"
               />
             </div>
             <div className="menu-img">
-              <img src="../../../public/images/icons/bag.svg" alt="" />
+            <Link to={"/basket"}>  <img src="../../../public/images/icons/bag.svg" alt="bag" /></Link>
             </div>
             <div className="menu-img">
-              <img src="../../../public/images/icons/profile-icon.svg" alt="" />
+             <Link to={"/login"}> <img src="../../../public/images/icons/profile-icon.svg" alt="profile" /></Link>
             </div>
           </div>
         </div>

@@ -18,23 +18,30 @@ const Card = () => {
         </div>
         <h3 className="main-title">Кускен Navy Blue</h3>
         <p className="main-category">Барные стулья</p>
-        <div className="price-box"><p className="main-price">2 300₽</p><p className="main-sale">37 990₽</p></div>
+        <div className="price-box">
+          <p className="main-price">2 300₽</p>
+          <p className="main-sale">37 990₽</p>
+        </div>
       </div>
       <div className="card__bottom">
-        <table>
-          <caption>Размеры</caption>
-          <tr>
-            <th>Ширина</th>
-            <th>Глубина</th>
-            <th>Высота</th>
-          </tr>
-          <tr>
-            <td>43 cm</td>
-            <td>50cm</td>
-            <td>70cm</td>
-          </tr>
-        </table>
-        <button className="card__button">Добавить в корзину</button>
+        <h3 className="bottom-title">Размеры</h3>
+
+        <dl className="bottom-table">
+          <div>
+            <dt>Ширина</dt>
+            <dd>43 cm</dd>
+          </div>
+          <div>
+            <dt>Глубина</dt>
+            <dd>50cm</dd>
+          </div>
+          <div>
+            <dt>Высота</dt>
+            <dd>70cm</dd>
+          </div>
+        </dl>
+
+        <button className="bottom-btn">Добавить в корзину</button>
       </div>
     </div>
   );
