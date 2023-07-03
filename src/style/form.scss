@@ -32,6 +32,8 @@
       color: #999;
       font-size: 0.92857rem;
       font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 3rem;
     }
     & a span {
       font-weight: 600;
@@ -44,16 +46,13 @@
       margin-bottom: 2rem;
     }
     & .form {
-      & label {
-        cursor: pointer;
-      }
       &__box-field {
         display: flex;
         position: relative;
         width: 100%;
-        margin-bottom: 1.2rem;
+        margin-bottom: .2rem;
         border-bottom: 2px solid #000842;
-        margin-bottom: 3rem;
+
         &_email::before {
           content: "";
           position: absolute;
@@ -82,7 +81,8 @@
           background-size: contain;
           background-repeat: no-repeat;
         }
-        &_password::before{     content: "";
+        &_password::before {
+          content: "";
           position: absolute;
           top: 50%;
           left: 0;
@@ -93,7 +93,8 @@
           background: url(../../public/images/icons/password.svg);
           background-position: center;
           background-size: contain;
-          background-repeat: no-repeat;}
+          background-repeat: no-repeat;
+        }
       }
 
       &-field {
