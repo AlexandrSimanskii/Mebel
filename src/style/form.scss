@@ -95,6 +95,20 @@
           background-size: contain;
           background-repeat: no-repeat;
         }
+        &_password::after{
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+        
+          width: 17px;
+          height: 17px;
+          background: url(../../public/images/icons/eye.png);
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
       }
 
       &-field {
