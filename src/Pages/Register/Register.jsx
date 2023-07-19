@@ -1,10 +1,12 @@
+
+
 import Form from "../../Component/Form/Form";
 
-
 const Register = () => {
-    return (
-      <Form/>
-    );
+
+
+ 
+  return <Form />;
 };
 
 export default Register;

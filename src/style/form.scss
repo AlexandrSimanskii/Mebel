@@ -48,6 +48,7 @@
     & .form {
       &__box-field {
         display: flex;
+        align-items: center;
         position: relative;
         width: 100%;
         margin-bottom: .2rem;
@@ -81,6 +82,12 @@
           background-size: contain;
           background-repeat: no-repeat;
         }
+        &_password img{
+        width: 1.2rem;
+        height: 1.2rem;
+        background-repeat: no-repeat;
+        background-size: contain;
+        }
         &_password::before {
           content: "";
           position: absolute;
@@ -95,20 +102,7 @@
           background-size: contain;
           background-repeat: no-repeat;
         }
-        &_password::after{
-          content: "";
-          position: absolute;
-          top: 50%;
-          right: 0;
-          transform: translateY(-50%);
-        
-          width: 17px;
-          height: 17px;
-          background: url(../../public/images/icons/eye.png);
-          background-position: center;
-          background-size: contain;
-          background-repeat: no-repeat;
-        }
+     
       }
 
       &-field {

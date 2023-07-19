@@ -6,31 +6,37 @@
     column-gap: 30px;
     row-gap: 30px;
   }
-  & h2 {
-    margin-bottom: 2rem;
+  & h2{
+    margin: 5rem 0;font-family: Roboto;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+   
   }
 }
 
 .card {
+
   position: relative;
-  padding: 1.4rem;
+  padding-top: 1.4rem;
   position: relative;
   border-radius: 5px;
   width: calc(25% - 30px);
   &__top {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin: 0 1.4rem 4rem;
   }
   &__sale {
     display: flex;
     align-items: center;
-    column-gap: 0.5rem;
+    column-gap: 0.7rem;
   }
 
   &__main {
     display: flex;
     flex-direction: column;
+    margin: 1.4rem 1.4rem 0;
   }
 
   & .main {
@@ -38,43 +44,42 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 14.2rem;
-      height: 10.7;
-      margin-bottom: 3.8rem;
+      width: 20rem;
+      height: 15rem;
+      margin-bottom: 5.3rem;
     }
     &-title {
       color: var(--text-color, #414141);
-      font-size: 1.14286rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      margin-bottom: 0.43rem;
+      margin-bottom: 0.6rem;
     }
     &-category {
       color: var(--text-color, #414141);
-      font-size: 0.78571rem;
+      font-size: 1rem;
       font-family: Roboto;
-      margin-bottom: 0.64em;
+      margin-bottom: 0.8rem;
     }
   }
 
   &__bottom {
-    
+    transform: translateY(-4px);
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1.4rem;
+    padding: 0 1.4rem;
     display: none;
     position: absolute;
     z-index: 100;
-    height: 140px;
+    height: 14rem;
     background-color: #fff;
     width: 100%;
-    transform: translateX(-1.4rem);
-    box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.11);
-    border-radius:0 0 5px 5px;
-    
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.11);
+    border-radius: 0 0 5px 5px;
   }
   &:hover {
-    box-shadow: 0px -5px 9px rgba(0, 0, 0, 0.11);
-   border: 5px 5px 0 0;
+    box-shadow: 0px -3px 9px rgba(0, 0, 0, 0.11);
+    border: 5px 5px 0 0;
     .card__bottom {
       display: flex;
     }
@@ -84,15 +89,15 @@
     display: flex;
     align-items: center;
     column-gap: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.4rem;
     & .main-price {
       color: var(--text-color, #414141);
-      font-size: 1.14286rem;
+      font-size: 1rem;
       font-family: Roboto;
       font-weight: 500;
     }
     & .main-sale {
-      font-size: 0.85714rem;
+      font-size: 1.2rem;
       font-family: Roboto;
 
       font-weight: 500;
@@ -107,21 +112,21 @@
       background: #245462;
       padding: 5px;
       border-radius: 5px;
-      padding: 0.57rem 0.86rem;
+      padding: 0.7rem 1rem;
       color: #fff;
     }
     &-title {
       color: var(--text-color);
-      font-size: 0.85714rem;
+      font-size: 1.6rem;
       font-family: Roboto;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      margin-bottom: 0.57rem;
+      margin-bottom: 0.7rem;
     }
     &-table {
       margin-bottom: 10px;
-      font-size: 0.64286rem;
+      font-size: 0.9rem;
       display: flex;
       justify-content: space-between;
       font-family: Roboto;
@@ -129,7 +134,7 @@
 
       & dt {
         color: #c4c4c4;
-        margin-bottom: 0.57rem;
+        margin-bottom: 0.7rem;
       }
       & dd {
         color: var(--text-color, #414141);
@@ -144,7 +149,7 @@
         height: 10px;
         top: 50%;
         transform: translate(-50%);
-        left: -1.5rem;
+        left: -2.1rem;
         background: url(../../public/images/icons/closed.svg);
         background-size: cover;
         background-position: center;

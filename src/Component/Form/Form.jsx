@@ -1,7 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+
+import { useContext } from "react";
+import { CustomContext } from "../../utils/Context/Context";
 
 const Form = () => {
   const {
@@ -12,9 +15,23 @@ const Form = () => {
     watch,
   } = useForm({ mode: "onBlur" });
 
+  const { user, registerUser, loginUser } = useContext(CustomContext);
+
+  const [visiblePwd, setVisiblePwd] = useState(false);
+  const [visiblePassword, setVisiblePassword] = useState(false);
   const { pathname } = useLocation();
   const password = useRef({});
   password.current = watch("password", "");
+
+  const submitForm = (data) => {
+    let { confirmPwd, ...username } = data;
+
+    if (pathname === "/login") {
+      loginUser(username);
+    } else {
+      registerUser(username);
+    }
+  };
 
   return (
     <div className="register">
@@ -29,7 +46,12 @@ const Form = () => {
             </Link>
           </p>
         )}
-        <form noValidate className="form" action="submit">
+        <form
+          onSubmit={handleSubmit(submitForm)}
+          noValidate
+          className="form"
+          action="submit"
+        >
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <div className=" form__box-field form__box-field_email">
@@ -140,8 +162,17 @@ const Form = () => {
                 })}
                 id="password"
                 className="form-field"
-                type="text"
+                type={visiblePassword ? "text" : "password"}
                 placeholder="Ввидите пароль"
+              />
+              <img
+                onClick={() => {
+                  setVisiblePassword((prev) => !prev);
+                }}
+                src={`../../../public/images/icons/${
+                  visiblePassword ? "eyeInvisible" : "eye"
+                }.png`}
+                alt="eye"
               />
             </div>
             <p className="register__label-error">{errors.password?.message}</p>
@@ -149,7 +180,7 @@ const Form = () => {
 
           {pathname === "/register" && (
             <div className="form-group">
-              <label htmlFor="confirmPassword">ConfirmPassword</label>
+              <label htmlFor="confirmPwd">ConfirmPassword</label>
               <div className=" form__box-field form__box-field_password">
                 <input
                   {...register("confirmPwd", {
@@ -158,8 +189,17 @@ const Form = () => {
                   })}
                   id="confirmPwd"
                   className="form-field"
-                  type="text"
+                  type={visiblePwd ? "text" : "password"}
                   placeholder="Подтвердите пароль "
+                />
+                <img
+                  onClick={() => {
+                    setVisiblePwd((prev) => !prev);
+                  }}
+                  src={`../../../public/images/icons/${
+                    visiblePwd ? "eyeInvisible" : "eye"
+                  }.png`}
+                  alt="eye"
                 />
               </div>
               <p className="register__label-error">
@@ -170,7 +210,7 @@ const Form = () => {
 
           <input
             className="form-button"
-            type="button"
+            type="submit"
             value={pathname === "/register" ? "Зарегистрироваться" : "Войти"}
           />
         </form>
