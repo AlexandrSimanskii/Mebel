@@ -5,7 +5,7 @@ const Home = () => {
     <>
       <Baner />
       <Cards/>
- dsffsgit status
+ 
  
     </>
   );
