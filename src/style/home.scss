@@ -56,25 +56,34 @@ background: url(../../public/images/image/Main-Img.png);
       box-shadow: inset 0 0 2px 0;
     }
   }
-}
-// .swiper-button-next::after,
-// .swiper-button-prev::after {
-//   font-size: 10px !important;
-//   color: #000 !important;
-//   font-weight: bolder !important;
-// }
 
-// .swiper-button-next,
-// .swiper-button-prev {
-//   background-color: #fff;
-//   width: 30px !important;
-//   height: 30px !important;
-//   border-radius: 5px;
-//   margin: 25px;
-// }
-// .swiper-button-next {
-//   background-color: #9d9d9d;
-// }
-// .swiper-pagination-bullet-active {
-//   background-color: #000 !important;
-// }
+
+
+
+
+
+
+
+  .swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 10px !important;
+  color: #000 !important;
+  font-weight: bolder !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: #fff;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 5px;
+  margin: 25px;
+}
+.swiper-button-next {
+  background-color: #9d9d9d;
+}
+.swiper-pagination-bullet-active {
+  background-color: #000 !important;
+}
+
+}
