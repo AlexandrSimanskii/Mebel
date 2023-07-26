@@ -2,7 +2,7 @@
 // import "swiper/css/pagination";
 
 import { useState } from "react";
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
@@ -72,13 +72,11 @@ const ProductSlider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="a">
-           
             <img src="../../../public/images/image/chair5.png" alt="chair" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="a">
-            
             <img src="../../../public/images/image/chair6.png" alt="chair" />
           </div>
         </SwiperSlide>
