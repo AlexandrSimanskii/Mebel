@@ -46,7 +46,7 @@ const ProductSlider = () => {
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
         }}
-        // loop={true}
+        loop={true}
         spaceBetween={15}
         slidesPerView={4}
         navigation={true}
