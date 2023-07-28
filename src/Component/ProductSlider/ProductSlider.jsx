@@ -46,7 +46,7 @@ const ProductSlider = () => {
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
         }}
-        // loop={true}
+        loop={true}
         spaceBetween={15}
         slidesPerView={4}
         navigation={true}
@@ -72,13 +72,11 @@ const ProductSlider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="a">
-           
             <img src="../../../public/images/image/chair5.png" alt="chair" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="a">
-            
             <img src="../../../public/images/image/chair6.png" alt="chair" />
           </div>
         </SwiperSlide>
