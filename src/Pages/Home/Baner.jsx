@@ -18,7 +18,7 @@ const Banner = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <img src="../../../public/images/image/Main-Img.png" alt="" />
+
             <div className="banner__info">
               <h2 className="banner__title">
                 loft <br />
@@ -31,7 +31,7 @@ const Banner = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="../../../public/images/image/img2.jpg" alt="" />
+           
             <div className="banner__info">
               <h2 className="banner__title">
                 loft <br />

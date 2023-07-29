@@ -56,8 +56,15 @@ background: url(../../public/images/image/Main-Img.png);
       box-shadow: inset 0 0 2px 0;
     }
   }
-}
-.swiper-button-next::after,
+
+
+
+
+
+
+
+
+  .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 10px !important;
   color: #000 !important;
@@ -77,4 +84,6 @@ background: url(../../public/images/image/Main-Img.png);
 }
 .swiper-pagination-bullet-active {
   background-color: #000 !important;
+}
+
 }

@@ -1,11 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
-
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CustomContext } from "../../utils/Context/Context";
 
 const Header = () => {
-
-const {pathname} = useLocation()
-console.log(pathname);
-
+  const { logOutUser, user } = useContext(CustomContext);
 
   return (
     <div className="header">
@@ -56,26 +54,33 @@ console.log(pathname);
             <input placeholder="Поиск" type="text" />
           </div>
           <div className="header-menu">
-            <div className="menu-img active">
-              <img
-                src="../../../public/images/icons/wishlist-icon.svg"
-                alt="heart"
-              />
+            <Link to={user.email?.length ? "/basket" : "/login"}>
+              <div className="menu-img active">
+                <img
+                  src="../../../public/images/icons/wishlist-icon.svg"
+                  alt="heart"
+                />
+              </div>
+            </Link>
+            <div className="menu-img">
+              <Link to={user.email?.length ? "/basket" : "/login"}>
+                {" "}
+                <img src="../../../public/images/icons/bag.svg" alt="bag" />
+              </Link>
             </div>
             <div className="menu-img">
-            <Link to={"/basket"}>  <img src="../../../public/images/icons/bag.svg" alt="bag" /></Link>
-            </div>
-            <div className="menu-img">
-             <Link to={"/login"}> <img src="../../../public/images/icons/profile-icon.svg" alt="profile" /></Link>
+              <Link to={"/login"}>
+                <p onClick={() => logOutUser()}>
+                  {user.email?.length ? "Выйти" : "Войти"}
+                </p>
+              </Link>
             </div>
           </div>
         </div>
         <div className="header__nav">
           <ul className="header__nav-list">
             <li className="  nav-list-kitchen b">
-              <a  href="#">
-                Кухни
-              </a>
+              <a href="#">Кухни</a>
             </li>
             <li className="nav-list-bedroom">
               <a href="#">Спальни</a>
@@ -93,7 +98,9 @@ console.log(pathname);
               <a href="#">Детские</a>
             </li>
             <li className="nav-list-sale">
-              <a className="active" href="#">Акция</a>
+              <a className="active" href="#">
+                Акция
+              </a>
             </li>
             <li className="nav-list-new">
               <a href="#">Новинки</a>

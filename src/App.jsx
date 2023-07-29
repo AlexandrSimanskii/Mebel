@@ -10,16 +10,22 @@ import CardProduct from "./Pages/CardProduct/CardProduct";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 
+
 function App() {
+
+
   return (
     <>appdd
       <Routes>
         <Route path="/" element={<Loyout />}>
           <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
+
+
+
           <Route path="*" element={<NotFound />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/cardProduct" element={<CardProduct />} />
+          <Route path="/product/:id" element={<CardProduct />} />
           <Route path="/account" element={<PersonAccount />} />{" "}
         </Route>
         <Route path="/register" element={<Register />} />
