@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 
 const Card = ({ item }) => {
-  console.log(item);
+ console.log(item);
 
   return (
     <div className="card">

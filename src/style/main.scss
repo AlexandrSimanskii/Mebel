@@ -33,6 +33,7 @@ a {
 .active {
   color: var(--color-active) !important;
 }
+.displayNone{display: none}
 
 @import "header";
 @import "footer";

@@ -2,7 +2,7 @@
 // import "swiper/css/pagination";
 
 import { useState } from "react";
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
