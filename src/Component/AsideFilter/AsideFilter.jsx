@@ -18,7 +18,7 @@ const AsideFilter = ({
   const resetFilter = () => {
     setSort("");
     setCategory("");
-    setSlider([0, 30000]);
+    // setSlider([0, 30000]);
   };
 
   return (

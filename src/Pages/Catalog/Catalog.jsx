@@ -9,11 +9,25 @@ const Catalog = () => {
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
 
-  const [slider, setSlider] = useState([0, 30000]);
+  const [slider, setSlider] = useState([1,5555]);
 
   const { search, setSearch } = useContext(CustomContext);
 
-  useEffect(() => {
+const getMinMaxPrice=(prod)=>{
+let allPrices=[]
+prod.map((item)=>{
+  allPrices=[...allPrices,item.price]
+})
+allPrices=allPrices.sort((a,b)=>a-b)
+
+setSlider([allPrices[0],allPrices.at(-1)])
+
+
+}
+
+
+
+useEffect(() => {
     let qweryParamsApi = `${search.length ? `title_like=${search}&` : ""}${
       category.length ? `category=${category}&` : ""
     }${
@@ -23,11 +37,17 @@ const Catalog = () => {
         ? `_sort=price&_order=desc`
         : ""
     }`;
-
     axios
       .get(`/products?${qweryParamsApi}`)
       .then((res) => setProducts(res.data));
   }, [search, sort, category]);
+
+
+useEffect(()=>{
+  products.length && getMinMaxPrice(products)
+},[products])
+
+
 
   //   useEffect(() => {
   //     let queryParamsApi = `?${search.length ? `title_like=${search}&` : ''}${category.length ? `category=${category}&` : ''}${sort.length && sort !== 'rate' ? `_sort=price&_order=${sort}&` : sort.length ? `_sort=rate&_order=desc&` : ''}`
