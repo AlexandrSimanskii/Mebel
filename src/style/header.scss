@@ -80,7 +80,8 @@
         background: url(../../public/images/icons/search-icon.svg);
         z-index: 2;
       }
-      &::after {
+      & .closed{
+   &::after {
         content: "";
         width: 16px;
         height: 16px;
@@ -93,6 +94,8 @@
         background-size: cover;
         z-index: 2;
       }
+      }
+   
     }
   }
 

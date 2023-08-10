@@ -1,18 +1,18 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
 import axios from "../../utils/Axios/axios";
 
 const Header = () => {
-
   const { logOutUser, user, navigate, search, setSearch, location } =
     useContext(CustomContext);
+
+ 
 
   useEffect(() => {
     location.pathname !== "/catalog" && setSearch("");
   }, [location.pathname]);
-
-  
+ 
 
   return (
     <div className="header">
@@ -73,6 +73,7 @@ const Header = () => {
               type="text"
               value={search}
             />
+            <div className={search.length?"closed":"displayNone"} onClick={() => setSearch("")}></div>
           </div>
           <div className="header-menu">
             <Link to={"/favorites"}>
