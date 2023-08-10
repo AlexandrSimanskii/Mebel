@@ -9,21 +9,16 @@ import PersonAccount from "./Pages/PersonAccount/PersonAccount";
 import CardProduct from "./Pages/CardProduct/CardProduct";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
-
+import Favorites from "./Pages/Favorites/Favorites";
 
 function App() {
-
-
   return (
     <>
-    qqq
       <Routes>
         <Route path="/" element={<Loyout />}>
           <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
-
-
-
+          <Route path="/favorites" element={<Favorites />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/product/:id" element={<CardProduct />} />

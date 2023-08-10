@@ -1,9 +1,11 @@
 /* eslint react/prop-types: 0 */
 
 import { Link } from "react-router-dom";
+import { CustomContext } from "../../utils/Context/Context";
+import { useContext } from "react";
 
 const Card = ({ item }) => {
- console.log(item);
+  const { favorites, favoritesHandler } = useContext(CustomContext);
 
   return (
     <div className="card">
@@ -11,7 +13,6 @@ const Card = ({ item }) => {
         <div className="card__sale">
           {item.sale > 0 ? (
             <>
-            
               <img
                 src="../../../../public/images/icons/sale-red.svg"
                 alt="sale"
@@ -23,14 +24,21 @@ const Card = ({ item }) => {
           )}
         </div>
         <img
+          onClick={(() => favoritesHandler(item))}
           className="card__favorite"
-          src="../../../../public/images/icons/favorite.svg"
+          src={
+            favorites.some((el) => el.id === item.id)
+              ? "../../../public/images/icons/HeartRed.svg"
+              : "../../../../public/images/icons/favorite.svg"
+          }
           alt=""
         />
       </div>
       <div className="card__main">
         <div className="main-img">
-         <Link to={`/product/${item.id}`}> <img src={item.image} alt="category" /></Link>
+          <Link to={`/product/${item.id}`}>
+            <img src={item.image} alt="category" />
+          </Link>
         </div>
         <h3 className="main-title">{item.title}</h3>
         <p className="main-category">{item.category}</p>

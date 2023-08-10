@@ -33,7 +33,15 @@ a {
 .active {
   color: var(--color-active) !important;
 }
-.displayNone{display: none}
+.displayNone {
+display: none
+}
+
+
+
+
+
+
 
 @import "header";
 @import "footer";
@@ -42,3 +50,4 @@ a {
 @import "card";
 @import "form";
 @import "cardProduct";
+@import "catalog";

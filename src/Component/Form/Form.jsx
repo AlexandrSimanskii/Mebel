@@ -111,7 +111,7 @@ const Form = () => {
               </div>{" "}
               <div className="form-group">
                 <label htmlFor="number">TEL</label>
-                <div className=" form__box-field form__box-field_password">
+                <div className=" form__box-field form__box-field_tel">
                   <InputMask
                     mask={`+\\7\\(\\999)-999-99-99`}
                     {...register("number", {
@@ -217,7 +217,7 @@ const Form = () => {
       </div>
       <div className="register__right">
         <img
-          src="../../../public/images/image/Rectangle 11.png"
+          src="../../../public/images/image/Login..jpg"
           alt="sign in"
         />
         <h3>Sign in to name</h3>

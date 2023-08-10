@@ -1,0 +1,37 @@
+.catalog {
+  &__inner {
+    display: flex;
+  }
+  &__aside {
+    display: flex;
+    row-gap: 20px;
+    flex-direction: column;
+    position: sticky;
+    top: 200px;
+    max-width: 26rem;
+    width: 100%;
+    height: fit-content;
+    box-shadow: 0px -1px 2px 0 rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    &-title {
+      margin-bottom: 1rem;
+    }
+    &-content{display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+  }
+  &__content {
+    display: flex;
+    column-gap: 3rem;
+
+    flex-wrap: wrap;
+    justify-content: space-between;
+    & .card {
+      width: calc(33% - 2rem);
+  
+    }
+   
+  }
+ 
+}

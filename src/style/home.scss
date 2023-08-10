@@ -1,12 +1,11 @@
 .banner {
-img{
-background: url(../../public/images/image/Main-Img.png);
-  width: 100%;
-  height: 100%;
-  z-index: -4;
-  position: absolute;
- 
-}
+  img {
+    background: url(../../public/images/image/Main-Img.png);
+    width: 100%;
+    height: 100%;
+    z-index: -4;
+    position: absolute;
+  }
   &__info {
     position: relative;
     z-index: -20;
@@ -36,7 +35,10 @@ background: url(../../public/images/image/Main-Img.png);
     margin-bottom: 1.8rem;
   }
   &__btn {
+    position: absolute;
+    z-index: 222222;
     color: var(--text-color, #414141);
+    z-index: 200;
     font-size: 0.85714rem;
     font-family: Roboto Condensed;
     font-weight: 700;
@@ -48,42 +50,38 @@ background: url(../../public/images/image/Main-Img.png);
     transition: 0.7s;
     border: none;
     box-shadow: 0 0 2px 0;
-
     &:hover {
-      opacity: 0.9;
+      background-color: aqua;
     }
+
     &:active {
       box-shadow: inset 0 0 2px 0;
     }
   }
 
-
-
-
-
-
-
-
   .swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 10px !important;
-  color: #000 !important;
-  font-weight: bolder !important;
-}
+  .swiper-button-prev::after {
+    font-size: 10px !important;
+    color: #000 !important;
+    font-weight: bolder !important;
+  }
 
-.swiper-button-next,
-.swiper-button-prev {
-  background-color: #fff;
-  width: 30px !important;
-  height: 30px !important;
-  border-radius: 5px;
-  margin: 25px;
-}
-.swiper-button-next {
-  background-color: #9d9d9d;
-}
-.swiper-pagination-bullet-active {
-  background-color: #000 !important;
-}
-
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-color: #fff;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 5px;
+    margin: 25px;
+    transition: transform .5s;
+    &:hover{
+      transform: scale(1.2);
+    }
+  }
+  .swiper-button-next {
+    background-color: #9d9d9d;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: #000 !important;
+  }
 }

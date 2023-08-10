@@ -6,17 +6,16 @@
     column-gap: 30px;
     row-gap: 30px;
   }
-  & h2{
-    margin: 5rem 0;font-family: Roboto;
+  & h2 {
+    margin: 5rem 0;
+    font-family: Roboto;
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 400;
-   
   }
 }
 
 .card {
-
   position: relative;
   padding-top: 1.4rem;
   position: relative;
@@ -32,7 +31,13 @@
     align-items: center;
     column-gap: 0.7rem;
   }
-
+  &__favorite {
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
   &__main {
     display: flex;
     flex-direction: column;

@@ -1,7 +1,7 @@
 // import "swiper/scss/navigation";
 // import "swiper/css/pagination";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
@@ -11,8 +11,15 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-const ProductSlider = () => {
+const ProductSlider = ({product}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+
+
+
+
+
+
 
   return (
     <div className="product__slider">
@@ -25,7 +32,7 @@ const ProductSlider = () => {
         className="mySwiper2"
       >
         <SwiperSlide>
-          <img src="../../../public/images/image/chair.png" alt="chair" />
+          <img src={product.image} alt="chair" />
         </SwiperSlide>
         <SwiperSlide>
           <img src="../../../public/images/image/chair3.png" alt="chair" />
@@ -57,7 +64,7 @@ const ProductSlider = () => {
       >
         <SwiperSlide>
           <div className="a">
-            <img src="../../../public/images/image/chair2.png" alt="chair" />
+            <img src={product.image} alt="chair" />
           </div>
         </SwiperSlide>
         <SwiperSlide>

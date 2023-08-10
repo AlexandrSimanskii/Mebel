@@ -1,9 +1,18 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
+import axios from "../../utils/Axios/axios";
 
 const Header = () => {
-  const { logOutUser, user } = useContext(CustomContext);
+
+  const { logOutUser, user, navigate, search, setSearch, location } =
+    useContext(CustomContext);
+
+  useEffect(() => {
+    location.pathname !== "/catalog" && setSearch("");
+  }, [location.pathname]);
+
+  
 
   return (
     <div className="header">
@@ -13,7 +22,7 @@ const Header = () => {
             <div className="header__top-left">
               <ul className="header__list">
                 <li>
-                  <a href="#">Главная</a>
+                  <Link to={"/"}>Главная</Link>
                 </li>
                 <li>
                   <a href="#">О нас</a>
@@ -49,12 +58,24 @@ const Header = () => {
 
       <div className="container">
         <div className="header__main">
-          <img src="../../../public/images/image/LOGO.svg" alt="" />
+          <Link to={"/"}>
+            <h1>
+              <img src="../../../public/images/image/LOGO.svg" alt="" />
+            </h1>
+          </Link>
           <div className="header-search">
-            <input placeholder="Поиск" type="text" />
+            <input
+              onChange={(event) => {
+                location.pathname !== "/catalog" && navigate("/catalog"),
+                  setSearch(event.target.value);
+              }}
+              placeholder="Поиск"
+              type="text"
+              value={search}
+            />
           </div>
           <div className="header-menu">
-            <Link to={user.email?.length ? "/basket" : "/login"}>
+            <Link to={"/favorites"}>
               <div className="menu-img active">
                 <img
                   src="../../../public/images/icons/wishlist-icon.svg"
