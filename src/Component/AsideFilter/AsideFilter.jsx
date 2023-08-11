@@ -2,6 +2,10 @@ import SelectFilter from "../SelectFilter/SelectFilter";
 import Checkbox from "@mui/material/Checkbox";
 import RangeInput from "./RangeInput.jsx";
 import { Button } from "@mui/material";
+import { useContext } from "react";
+import { CustomContext } from "../../utils/Context/Context";
+import axios from "../../utils/Axios/axios";
+
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -11,14 +15,36 @@ const AsideFilter = ({
   category,
   setCategory,
   slider,
-  setSlider,
+  setSlider, setProducts
 }) => {
+
+
+  const { search, setSearch } = useContext(CustomContext);
   const colors = ["red", "green", "blue"];
 
   const resetFilter = () => {
     setSort("");
     setCategory("");
-    setSlider([0, Infinity]);
+    setSlider([0, 0]);
+  };
+  
+  //  Получаем отфильтрованные продукты
+  const getFilterCategory = () => {
+    let qweryParamsApi = `${search.length ? `title_like=${search}&` : ""}${
+      category.length ? `category=${category}&` : ""
+    }${
+      sort.length && sort !== "rate"
+        ? `_sort=price&_order=${sort}`
+        : sort.length
+        ? `_sort=price&_order=desc`
+        : ""
+    }`;
+
+    let queryParamsFromTo = `price_gte=${slider[0]}&price_lte=${slider[1]}`;
+
+    axios.get(`/products?${qweryParamsApi}${queryParamsFromTo}`).then((res) => {
+      setProducts(res.data);
+    });
   };
 
   return (
@@ -60,8 +86,8 @@ const AsideFilter = ({
         <Button variant="contained" onClick={resetFilter}>
           Сбросить
         </Button>
-        <Button variant="contained" onClick={resetFilter}>
-          Поиск
+        <Button variant="contained" onClick={getFilterCategory}>
+          Отфильтровать
         </Button>
       </div>
     </aside>
