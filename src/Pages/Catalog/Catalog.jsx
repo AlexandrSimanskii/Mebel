@@ -8,8 +8,7 @@ const Catalog = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
-
-  const [slider, setSlider] = useState([]);
+  const [slider, setSlider] = useState([0,0]);
 
   const { search, setSearch } = useContext(CustomContext);
 
@@ -34,17 +33,22 @@ const Catalog = () => {
         : ""
     }`;
 
-    let queryParamsFromTo = `price_gte=${0}&price_lte=${100000}`;
+    let queryParamsFromTo = `price_gte=${slider[0]}&price_lte=${slider[1]}`;
 
     axios.get(`/products?${qweryParamsApi}${queryParamsFromTo}`).then((res) => {
-      setProducts(res.data), console.log(slider);
+      setProducts(res.data);
     });
-  }, [search, sort, category]);
+  }, [search, sort, category,slider]);
 
+
+
+
+  
   useEffect(() => {
     products.length && getMinMaxPrice(products);
-  }, [products]);
+  }, []);
 
+  console.log(slider);
   //   useEffect(() => {
   //     let queryParamsApi = `?${search.length ? `title_like=${search}&` : ''}${category.length ? `category=${category}&` : ''}${sort.length && sort !== 'rate' ? `_sort=price&_order=${sort}&` : sort.length ? `_sort=rate&_order=desc&` : ''}`
 

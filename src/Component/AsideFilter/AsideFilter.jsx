@@ -18,7 +18,7 @@ const AsideFilter = ({
   const resetFilter = () => {
     setSort("");
     setCategory("");
-    // setSlider([0, 30000]);
+    setSlider([0, Infinity]);
   };
 
   return (
@@ -56,10 +56,14 @@ const AsideFilter = ({
           <div className="catalog__aside-price">{slider[1]} ₽</div>
         </div>
       </div>
-
-      <Button variant="contained" onClick={resetFilter}>
-        Сбросить
-      </Button>
+      <div className="catalog__aside-btns">
+        <Button variant="contained" onClick={resetFilter}>
+          Сбросить
+        </Button>
+        <Button variant="contained" onClick={resetFilter}>
+          Поиск
+        </Button>
+      </div>
     </aside>
   );
 };

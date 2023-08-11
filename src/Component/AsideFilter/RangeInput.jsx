@@ -11,8 +11,8 @@ const RangeInput = ({ slider, setSlider }) => {
   return (
     <Box sx={{ width: "100%" }}>
       <Slider
-        defaultValue={slider}
-        onChange={debounce(handleChange, 1000)}
+        value={slider}
+        onChange={debounce(handleChange, 0)}
         valueLabelDisplay="auto"
         step={100}
         min={0}

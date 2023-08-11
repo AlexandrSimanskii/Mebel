@@ -16,12 +16,21 @@
     &-title {
       margin-bottom: 1rem;
     }
-    &-content{display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-  }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+    }
+    &-btns{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      column-gap: 2rem;
+      align-items: center;
+    }
   }
   &__content {
+    width: 100%;
     display: flex;
     column-gap: 3rem;
 
@@ -29,9 +38,6 @@
     justify-content: space-between;
     & .card {
       width: calc(33% - 2rem);
-  
     }
-   
   }
- 
 }
