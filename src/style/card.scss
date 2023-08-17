@@ -162,4 +162,16 @@
       }
     }
   }
+  &__counter{
+    display: flex;
+    justify-content:space-between;
+    padding: 1rem 0;
+    align-items: center;
+     button{
+      padding: .5rem 3rem;
+      border-radius: 7px;
+      background-color:#245462;
+      color: #fff;
+     }
+  }
 }

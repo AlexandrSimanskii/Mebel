@@ -85,8 +85,8 @@ const Header = () => {
               </div>
             </Link>
             <div className="menu-img">
-              <Link to={user.email?.length ? "/basket" : "/login"}>
-                {" "}
+              <Link to={user.email?.length ? "/cart" : "/login"}>
+                
                 <img src="../../../public/images/icons/bag.svg" alt="bag" />
               </Link>
             </div>

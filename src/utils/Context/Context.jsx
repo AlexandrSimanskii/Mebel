@@ -1,25 +1,25 @@
 import axios from "../../utils/Axios/axios";
 import { createContext, useEffect } from "react";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { json, useLocation, useNavigate } from "react-router-dom";
 
 export const CustomContext = createContext();
 
 const Context = (props) => {
-  const location = useLocation()
+  const location = useLocation();
   const navigate = useNavigate();
   const [user, setUser] = useState({ Email: "" });
   const [hitSale, setHitSale] = useState([]);
   const [favorites, setFavorites] = useState([]);
-const[search,setSearch]=useState("")
+  const [search, setSearch] = useState("");
   // startUserContent
   useEffect(() => {
     if (localStorage.getItem("user") !== null) {
       setUser(JSON.parse(localStorage.getItem("user")));
     }
-    if(localStorage.getItem("favorites")!==null){
-    
-      setFavorites(JSON.parse(localStorage.getItem("favorites")) )}
+    if (localStorage.getItem("favorites") !== null) {
+      setFavorites(JSON.parse(localStorage.getItem("favorites")));
+    }
   }, []);
 
   //Регистрация
@@ -65,18 +65,74 @@ const[search,setSearch]=useState("")
   // Получить продукты-фавориты
 
   const favoritesHandler = (product) => {
-  let findProduct = favorites.some((item)=>item.id===product.id)
-  if(findProduct){
-    setFavorites((prev)=>prev.filter((item)=>item.id!==product.id))
-  }else{
-    setFavorites((prev)=>[...prev,product])
-  }
- 
+    let findProduct = favorites.some((item) => item.id === product.id);
+    if (findProduct) {
+      setFavorites((prev) => prev.filter((item) => item.id !== product.id));
+    } else {
+      setFavorites((prev) => [...prev, product]);
+    }
   };
 
-  useEffect(()=>{
-    localStorage.setItem("favorites",JSON.stringify(favorites))
-  },[favorites])
+  // Added in the cart
+
+  const addCarts = (product) => {
+    axios
+      .patch(`users/${user.id}`, {
+        carts: [...user.carts, { ...product, count: 1 }],
+      })
+      .then((res) => {
+        console.log(res.data);
+        setUser(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
+  };
+
+  const addCardsCountPlus = (id) => {
+    axios
+      .patch(`users/${user.id}`, {
+        carts: user.carts.map((item) => {
+          if (item.id === id) {
+            return { ...item, count: item.count + 1 };
+          }else{return item}
+        }),
+      })
+      .then((res) => {
+        console.log(res.data);
+        setUser(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
+  };
+
+
+
+  const addCardsCountMinus = (id) => {
+    axios
+      .patch(`users/${user.id}`, {
+        carts:user.cards.find((item)=>item.id===id).count>1? user.carts.map((item) => {
+          if (item.id === id) {
+            return { ...item, count: item.count - 1 };
+          }else{return item}
+        }):user.cards.filter((item)=>item.id!==id)
+      })
+      .then((res) => {
+        console.log(res.data);
+        setUser(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
+  };
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   const value = {
     user,
@@ -86,7 +142,12 @@ const[search,setSearch]=useState("")
     navigate,
     hitSale,
     getHitSale,
-    favorites,favoritesHandler,search,setSearch,location
+    favorites,
+    favoritesHandler,
+    search,
+    setSearch,
+    location,
+    addCarts,addCardsCountPlus,addCardsCountMinus
   };
 
   return (

@@ -1,11 +1,16 @@
 /* eslint react/prop-types: 0 */
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
 import { useContext } from "react";
+import axios from "../../utils/Axios/axios";
 
 const Card = ({ item }) => {
-  const { favorites, favoritesHandler } = useContext(CustomContext);
+  const { favorites, favoritesHandler, user, addCarts,addCardsCountPlus,addCardsCountMinus } =
+    useContext(CustomContext);
+  const navigate = useNavigate();
+
+  console.log(user.carts);
 
   return (
     <div className="card">
@@ -24,7 +29,7 @@ const Card = ({ item }) => {
           )}
         </div>
         <img
-          onClick={(() => favoritesHandler(item))}
+          onClick={() => favoritesHandler(item)}
           className="card__favorite"
           src={
             favorites.some((el) => el.id === item.id)
@@ -65,7 +70,27 @@ const Card = ({ item }) => {
           </div>
         </dl>
 
-        <button className="bottom-btn">Добавить в корзину</button>
+        {user.carts?.some((el) => el.id === item.id) ? (
+          <div className="card__counter">
+            <button onClick={()=>addCardsCountPlus(item.id)}>+</button>
+            <span> {user.carts.find((el) => el.id === item.id).count}</span>
+            <button onClick={()=>addCardsCountMinus(item.id)}>-</button>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              if ("id" in user) {
+                addCarts(item);
+              } else {
+                navigate("/login");
+              }
+            }}
+            className="bottom-btn"
+          >
+            Добавить в корзину
+          </button>
+        )}
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import CardProduct from "./Pages/CardProduct/CardProduct";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import Favorites from "./Pages/Favorites/Favorites";
+import Cart from "./Pages/Cart/Cart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/Cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/product/:id" element={<CardProduct />} />
