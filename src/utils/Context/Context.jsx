@@ -96,7 +96,9 @@ const Context = (props) => {
         carts: user.carts.map((item) => {
           if (item.id === id) {
             return { ...item, count: item.count + 1 };
-          }else{return item}
+          } else {
+            return item;
+          }
         }),
       })
       .then((res) => {
@@ -109,16 +111,19 @@ const Context = (props) => {
       });
   };
 
-
-
   const addCardsCountMinus = (id) => {
     axios
       .patch(`users/${user.id}`, {
-        carts:user.cards.find((item)=>item.id===id).count>1? user.carts.map((item) => {
-          if (item.id === id) {
-            return { ...item, count: item.count - 1 };
-          }else{return item}
-        }):user.cards.filter((item)=>item.id!==id)
+        carts:
+        user.carts.find((item)=>item.id===id).count>1
+       
+            ? user.carts.map((item) => {
+                if (item.id === id) {
+                  return { ...item, count: item.count - 1 };
+                }
+                return item;
+              })
+            : user.carts.filter((item) => item.id !== id),
       })
       .then((res) => {
         console.log(res.data);
@@ -129,7 +134,7 @@ const Context = (props) => {
         console.error("An error occurred:", error);
       });
   };
-
+ 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
@@ -147,7 +152,9 @@ const Context = (props) => {
     search,
     setSearch,
     location,
-    addCarts,addCardsCountPlus,addCardsCountMinus
+    addCarts,
+    addCardsCountPlus,
+    addCardsCountMinus,
   };
 
   return (

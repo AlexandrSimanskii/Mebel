@@ -3,7 +3,7 @@ import { CustomContext } from "../../utils/Context/Context";
 import Card from "../../Component/Card/Card";
 
 const Favorites = () => {
-  const { favorites } = useContext(CustomContext);
+  const { favorites} = useContext(CustomContext);
   const [page, setPage] = useState(1);
 
   let favoritesPages = new Array(Math.ceil(favorites.length / 4)).fill(null, 0);
