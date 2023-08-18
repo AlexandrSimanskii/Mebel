@@ -25,12 +25,6 @@ const CardProduct = () => {
   }, [params.id]);
 
 
-
- 
-
-
-
-
   if ("id" in product) {
     return (
       <>

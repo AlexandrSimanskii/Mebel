@@ -2,8 +2,7 @@ import { useContext, useState } from "react";
 import { CustomContext } from "../../utils/Context/Context";
 
 const ProductInfo = ({ product }) => {
-
-  const{favorites,favoritesHandler}=useContext(CustomContext)
+  const { favorites, favoritesHandler } = useContext(CustomContext);
 
   const [selectedColor, setSelectedColor] = useState("red");
   const [selectedSize, setSelectedSize] = useState("218 СМ×95 СМ×90 СМ");
@@ -27,7 +26,8 @@ const ProductInfo = ({ product }) => {
         <p className="payGroup-price">{product.price}₽</p>
         <button>Купить</button>
         <div className="payGroup-favorite">
-          <img  onClick={() => favoritesHandler(product)}
+          <img
+            onClick={() => favoritesHandler(product)}
             src={
               favorites.some((el) => el.id === product.id)
                 ? "../../../public/images/icons/HeartRed.svg"
@@ -152,7 +152,7 @@ const ProductInfo = ({ product }) => {
       </div>
       <div className="productDescription">
         <h4>Описание</h4>
-        <p>{product.description}}</p>
+        <p>{product.description}</p>
       </div>
     </div>
   );
