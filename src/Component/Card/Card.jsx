@@ -3,7 +3,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
 import { useContext, useEffect } from "react";
-import axios from "../../utils/Axios/axios";
+
 
 const Card = ({ item }) => {
   const {
@@ -16,9 +16,7 @@ const Card = ({ item }) => {
   } = useContext(CustomContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(user.carts);
-  }, []);
+ 
 
   return (
     <div className="card">
