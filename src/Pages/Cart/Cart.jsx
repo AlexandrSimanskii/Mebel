@@ -2,7 +2,7 @@ import { Fragment, useContext } from "react";
 import { CustomContext } from "../../utils/Context/Context";
 
 const Cart = (item) => {
-  const { addCardsCountPlus, addCardsCountMinus, user } =
+  const { addCardsCountPlus, addCardsCountMinus, user,navigate } =
     useContext(CustomContext);
 
   return (
@@ -49,15 +49,15 @@ const Cart = (item) => {
         <div>
           <div className="cart__bottom">
             <p>
-           
-              Итоговая сумма  
+              Итоговая сумма{" "}
               {user.carts?.reduce(
                 (acc, rec) => acc + rec.price * rec.count,
                 0
               )}{" "}
+              p
             </p>
 
-            <button>Оформить заказ</button>
+            <button onClick={()=>navigate("/checkout")}>Оформить заказ</button>
           </div>
         </div>
       </div>

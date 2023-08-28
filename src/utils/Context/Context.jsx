@@ -12,6 +12,7 @@ const Context = (props) => {
   const [hitSale, setHitSale] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [search, setSearch] = useState("");
+
   // startUserContent
   useEffect(() => {
     if (localStorage.getItem("user") !== null) {
@@ -115,8 +116,7 @@ const Context = (props) => {
     axios
       .patch(`users/${user.id}`, {
         carts:
-        user.carts.find((item)=>item.id===id).count>1
-       
+          user.carts.find((item) => item.id === id).count > 1
             ? user.carts.map((item) => {
                 if (item.id === id) {
                   return { ...item, count: item.count - 1 };
@@ -134,7 +134,21 @@ const Context = (props) => {
         console.error("An error occurred:", error);
       });
   };
- 
+
+  const addOrders = (order) => {
+    axios
+      .patch(`users/${user.id}`, {
+        orders: [...user.orders, order],
+      })
+      .then((res) => {
+        setUser(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
+  };
+
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
@@ -155,6 +169,7 @@ const Context = (props) => {
     addCarts,
     addCardsCountPlus,
     addCardsCountMinus,
+    addOrders
   };
 
   return (

@@ -162,16 +162,22 @@
       }
     }
   }
-  &__counter{
+  &__counter {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 1rem 0;
     align-items: center;
-     button{
-      padding: .5rem 3rem;
+    button {
+      padding: 0.5rem 3rem;
       border-radius: 7px;
-      background-color:#245462;
+      background-color: var(--button-color);
       color: #fff;
-     }
+    }
   }
+}
+.css-187mznn-MuiSlider-root {
+  color: var(--button-color) !important;
+}
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+  background-color: var(--button-color) !important;
 }

@@ -5,26 +5,28 @@ import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import NotFound from "./Pages/NotFound/NotFound";
 import Catalog from "./Pages/Catalog/Catalog";
+import Checkout from "./Pages/Checkout/Checkout";
 import PersonAccount from "./Pages/PersonAccount/PersonAccount";
 import CardProduct from "./Pages/CardProduct/CardProduct";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import Favorites from "./Pages/Favorites/Favorites";
 import Cart from "./Pages/Cart/Cart";
-
 function App() {
   return (
     <>
+    
       <Routes>
         <Route path="/" element={<Loyout />}>
           <Route path="" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/Cart" element={<Cart />} />
+          <Route path="checkout" element={<Checkout/>}/>
           <Route path="*" element={<NotFound />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/product/:id" element={<CardProduct />} />
-          <Route path="/account" element={<PersonAccount />} />{" "}
+          <Route path="/account" element={<PersonAccount />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

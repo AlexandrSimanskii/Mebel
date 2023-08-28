@@ -102,30 +102,28 @@ const Header = () => {
         <div className="header__nav">
           <ul className="header__nav-list">
             <li className="  nav-list-kitchen b">
-              <a href="#">Кухни</a>
+              Кухни
             </li>
             <li className="nav-list-bedroom">
-              <a href="#">Спальни</a>
+              Спальни
             </li>
             <li className="nav-list-livingRoom">
-              <a href="#">Гостиные</a>
+            Гостиные
             </li>
             <li className="nav-list-hollway">
-              <a href="#">Прихожие</a>
+            Прихожие
             </li>
             <li className="nav-list-office">
-              <a href="#">Офисная мебель</a>
+            Офисная мебель
             </li>
             <li className="nav-list-childrensRoom">
-              <a href="#">Детские</a>
+            Детские
             </li>
             <li className="nav-list-sale">
-              <a className="active" href="#">
-                Акция
-              </a>
+            Акция
             </li>
             <li className="nav-list-new">
-              <a href="#">Новинки</a>
+            Новинки
             </li>
           </ul>
         </div>
