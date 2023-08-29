@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CustomContext } from "../../utils/Context/Context";
 import { useForm } from "react-hook-form";
 
 const Checkout = () => {
-  const { user, addOrder } = useContext(CustomContext);
+  const { user, addOrders, navigate } = useContext(CustomContext);
   const [payCard, setPayCard] = useState(true);
   const [payCash, setPayCash] = useState(false);
-
+  const [popupTimer, setPopupTimer] = useState(10);
   const {
     register,
     handleSubmit,
@@ -14,15 +14,29 @@ const Checkout = () => {
   } = useForm();
 
   const submitForm = (data) => {
-    console.log(data);
+    let order = {
+      ...data,
+      order: user.carts,
+      totalPrice: user.carts?.reduce((acc, el) => acc + el.price * el.count, 0),
+    };
+    addOrders(order);
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPopupTimer((prev) => {return prev>1? prev-1:navigate("/")
+       
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="checkout">
+    <section className="checkout">
       <div className="container">
         <div className="checkout__inner">
-          <div className="user__inform">
-            <form action="submit" onSubmit={handleSubmit(submitForm)}>
+          <form action="submit" onSubmit={handleSubmit(submitForm)}>
+            <div className="user__inform">
               <div className="form__field">
                 <h5>Данные покупателя</h5>
                 <input
@@ -64,60 +78,59 @@ const Checkout = () => {
                   type="text"
                 />
               </div>
-
               <div className="form__field">
                 <h5>Коментарии</h5>
                 <textarea
                   {...register("info")}
                   placeholder="Дополнительная информация"
-                  name=""
+                  name="info"
                   cols="30"
                   rows="10"
                 ></textarea>
               </div>
-            </form>
-          </div>
-          <div className="order__inform">
-            <table>
-              <thead>
-                <tr>
-                  <th>Ваш заказ</th>
-                </tr>
-              </thead>
+            </div>
 
-              <tbody>
-                <tr>
-                  <td>Товар</td>
-                  <td></td>
-                  <td>Количество Всего</td>
-                </tr>
+            <div className="order__inform">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ваш заказ</th>
+                  </tr>
+                </thead>
 
-                {user.carts?.map((item) => {
-                  return (
-                    <tr key={item.id}>
-                      <td>{item.title}</td>
-                      <td>{item.count}</td>
-                      <td>{item.price * item.count} руб</td>
-                    </tr>
-                  );
-                })}
+                <tbody>
+                  <tr>
+                    <td>Товар</td>
+                    <td></td>
+                    <td>Количество Всего</td>
+                  </tr>
 
-                <tr>
-                  <td>Итого</td>
-                  <td>
-                    {user.carts?.reduce(
-                      (acc, el) => acc + el.price * el.count,
-                      0
-                    )}
-                    руб
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div className="checkout__payment">
-              <p>Способы оплаты</p>
+                  {user.carts?.map((item) => {
+                    return (
+                      <tr key={item.id}>
+                        <td>{item.title}</td>
+                        <td>{item.count}</td>
+                        <td>{item.price * item.count} руб</td>
+                      </tr>
+                    );
+                  })}
 
-              {/* <div className="checkout__payment-choice">
+                  <tr>
+                    <td>Итого</td>
+                    <td>
+                      {user.carts?.reduce(
+                        (acc, el) => acc + el.price * el.count,
+                        0
+                      )}
+                      руб
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="checkout__payment">
+                <p>Способы оплаты</p>
+
+                {/* <div className="checkout__payment-choice">
                 <label>
                   Наличные{" "}
                   <input
@@ -143,12 +156,18 @@ const Checkout = () => {
                 </label>
               </div> */}
 
-              <button >Разместить заказ</button>
+                <button>Разместить заказ</button>
+              </div>
             </div>
-          </div>
+          </form>
+        </div>
+        <div className="popup">
+          <h2>Заказ оформлен</h2>
+          <p>Через {popupTimer}сек. вас перекинет на главную страницу</p>
+          <button onClick={()=>navigate("/")}>Перейти на главную</button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

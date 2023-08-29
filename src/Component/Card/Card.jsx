@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
 import { useContext, useEffect } from "react";
 
-
 const Card = ({ item }) => {
   const {
     favorites,
@@ -15,8 +14,6 @@ const Card = ({ item }) => {
     addCardsCountMinus,
   } = useContext(CustomContext);
   const navigate = useNavigate();
-
- 
 
   return (
     <div className="card">
@@ -78,9 +75,10 @@ const Card = ({ item }) => {
 
         {user.carts?.some((el) => el.id == item.id) ? (
           <div className="card__counter">
-            <button onClick={() => addCardsCountPlus(item.id)}>+</button>
-            <span> {user.carts.find((el) => el.id === item.id).count}</span>
+            {" "}
             <button onClick={() => addCardsCountMinus(item.id)}>-</button>
+            <span> {user.carts.find((el) => el.id === item.id).count}</span>
+            <button onClick={() => addCardsCountPlus(item.id)}>+</button>
           </div>
         ) : (
           <button
