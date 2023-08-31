@@ -7,6 +7,7 @@ const Checkout = () => {
   const [payCard, setPayCard] = useState(true);
   const [payCash, setPayCash] = useState(false);
   const [popupTimer, setPopupTimer] = useState(10);
+  const [popup,setPopup]=useState(false)
   const {
     register,
     handleSubmit,
@@ -19,17 +20,17 @@ const Checkout = () => {
       order: user.carts,
       totalPrice: user.carts?.reduce((acc, el) => acc + el.price * el.count, 0),
     };
-    addOrders(order);
+    addOrders(order,setPopup);
   };
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setPopupTimer((prev) => {return prev>1? prev-1:navigate("/")
-       
+      setPopupTimer((prev) => {
+        return prev > 1 ? prev - 1 : navigate("/");
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, []);
+  },);
 
   return (
     <section className="checkout">
@@ -161,11 +162,12 @@ const Checkout = () => {
             </div>
           </form>
         </div>
-        <div className="popup">
+        {popup &&  <div className="popup">
           <h2>Заказ оформлен</h2>
           <p>Через {popupTimer}сек. вас перекинет на главную страницу</p>
-          <button onClick={()=>navigate("/")}>Перейти на главную</button>
-        </div>
+          <button onClick={() => navigate("/")}>Перейти на главную</button>
+        </div>}
+       
       </div>
     </section>
   );
