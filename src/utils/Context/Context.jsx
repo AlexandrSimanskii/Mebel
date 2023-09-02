@@ -135,16 +135,17 @@ const Context = (props) => {
       });
   };
 
-  const addOrders = (order,setPopup) => {
+  const addOrders = (order, setPopup, redirect) => {
     axios
       .patch(`users/${user.id}`, {
         orders: [...user.orders, order],
-        carts:[]
+        carts: [],
       })
       .then((res) => {
         setUser(res.data);
         localStorage.setItem("user", JSON.stringify(res.data));
-setPopup(true)
+        setPopup(true);
+        redirect();
       })
       .catch((error) => {
         console.error("An error occurred:", error);
@@ -157,6 +158,7 @@ setPopup(true)
 
   const value = {
     user,
+    setUser,
     registerUser,
     loginUser,
     logOutUser,
@@ -171,7 +173,7 @@ setPopup(true)
     addCarts,
     addCardsCountPlus,
     addCardsCountMinus,
-    addOrders
+    addOrders,
   };
 
   return (

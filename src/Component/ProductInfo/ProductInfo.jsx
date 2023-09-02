@@ -1,8 +1,15 @@
 import { useContext, useState } from "react";
 import { CustomContext } from "../../utils/Context/Context";
+import { useForm } from "react-hook-form";
 
 const ProductInfo = ({ product }) => {
-  const { favorites, favoritesHandler } = useContext(CustomContext);
+  const {
+    favorites,
+    favoritesHandler,
+    addCarts,
+    addCardsCountPlus,
+    addCardsCountMinus,
+  } = useContext(CustomContext);
 
   const [selectedColor, setSelectedColor] = useState("red");
   const [selectedSize, setSelectedSize] = useState("218 СМ×95 СМ×90 СМ");
@@ -18,13 +25,15 @@ const ProductInfo = ({ product }) => {
     setSelectedColor(selectedValue);
   };
   console.log(product);
+
+
   return (
     <div className="purches__inform">
       <h3>{product.title}</h3>
       <p className="purches__inform-category">{product.category}</p>
       <div className="payGroup">
         <p className="payGroup-price">{product.price}₽</p>
-        <button>Купить</button>
+        <button onClick={()=>{addCarts(product)}}>Купить</button>
         <div className="payGroup-favorite">
           <img
             onClick={() => favoritesHandler(product)}
@@ -79,12 +88,13 @@ const ProductInfo = ({ product }) => {
           </ul>
         </div>
 
-        <div className="chengePSC">
+        <form action="submit" className="chengePSC">
           <button
             onClick={() => {
               setSelectedPSC((prev) => {
                 return prev > 0 ? prev - 1 : 0;
               });
+              addCardsCountMinus(product.id)
             }}
           >
             -
@@ -102,11 +112,12 @@ const ProductInfo = ({ product }) => {
           <button
             onClick={() => {
               setSelectedPSC((prev) => Number(prev) + 1);
+              addCardsCountPlus(product.id)
             }}
           >
             +
           </button>
-        </div>
+        </form>
 
         <div className="chengeSize">
           <div

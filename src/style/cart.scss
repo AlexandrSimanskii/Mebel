@@ -15,6 +15,7 @@
     font-weight: 400;
   }
   &__card {
+    position: relative;
     border-radius: 4px;
     margin-bottom: 1rem;
     padding: 2rem 2.2rem;
@@ -81,6 +82,16 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+    &-closed{padding: 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+     img{
+      width: 1.5rem;
+      height: 1.5rem;
+     }
+
     }
   }
   &__bottom {

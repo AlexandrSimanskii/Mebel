@@ -7,7 +7,7 @@ const Checkout = () => {
   const [payCard, setPayCard] = useState(true);
   const [payCash, setPayCash] = useState(false);
   const [popupTimer, setPopupTimer] = useState(10);
-  const [popup,setPopup]=useState(false)
+  const [popup, setPopup] = useState(false);
   const {
     register,
     handleSubmit,
@@ -20,17 +20,21 @@ const Checkout = () => {
       order: user.carts,
       totalPrice: user.carts?.reduce((acc, el) => acc + el.price * el.count, 0),
     };
-    addOrders(order,setPopup);
+    addOrders(order, setPopup,redirect);
   };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
+  const redirect = () => {
+    setInterval(() => {
+      // if (popupTimer < 1) {
+      //   navigate("/");
+      // }
       setPopupTimer((prev) => {
         return prev > 1 ? prev - 1 : navigate("/");
       });
     }, 1000);
-    return () => clearInterval(timer);
-  },);
+  };
+
+
 
   return (
     <section className="checkout">
@@ -157,17 +161,22 @@ const Checkout = () => {
                 </label>
               </div> */}
 
-                <button>Разместить заказ</button>
+                <button
+                
+                >
+                  Разместить заказ
+                </button>
               </div>
             </div>
           </form>
         </div>
-        {popup &&  <div className="popup">
-          <h2>Заказ оформлен</h2>
-          <p>Через {popupTimer}сек. вас перекинет на главную страницу</p>
-          <button onClick={() => navigate("/")}>Перейти на главную</button>
-        </div>}
-       
+        {popup && (
+          <div className="popup">
+            <h2>Заказ оформлен</h2>
+            <p>Через {popupTimer}сек. вас перекинет на главную страницу</p>
+            <button onClick={() => navigate("/")}>Перейти на главную</button>
+          </div>
+        )}
       </div>
     </section>
   );
