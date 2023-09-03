@@ -22,14 +22,14 @@ const About = () => {
               <button>Отправить</button>
             </form>
             <ul className="about__list">
-              <li>8(964)8999119</li>
+              <li className="about__list-number" >8 (964) 899 91 19</li>
               <Link>
-                <li>mebel_Loft_anapa@mail.ru</li>
+                <li className="about__list-mail" >mebel_Loft_anapa@mail.ru</li>
               </Link>
               <Link>
-                <li>INSTAGRAM</li>
+                <li className="about__list-insta" >INSTAGRAM</li>
               </Link>
-              <li>Адресс:г.Анапа,Анапское шоссе,30 Ж/К Черное море</li>
+              <li className="about__list-adress" >Адресс:г.Анапа,Анапское шоссе,30 Ж/К Черное море</li>
             </ul>
           </div>
           <div className="about__map">
