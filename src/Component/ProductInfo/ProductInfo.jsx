@@ -11,21 +11,17 @@ const ProductInfo = ({ product }) => {
     addCardsCountMinus,
   } = useContext(CustomContext);
 
-  const [selectedColor, setSelectedColor] = useState("red");
+ 
   const [selectedSize, setSelectedSize] = useState("218 СМ×95 СМ×90 СМ");
   const [selectedPSC, setSelectedPSC] = useState(0);
 
   const [sizeVisible, setSizeVisible] = useState(false);
-  const [colorVisible, setColorVisible] = useState(false);
+ 
   const [pscVisible, setPscVisible] = useState(false);
-  const [color, setColor] = useState("red");
-
-  const handleColorChange = (event) => {
-    const selectedValue = event.target.value;
-    setSelectedColor(selectedValue);
-  };
-  console.log(product);
-
+ 
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
+ 
 
   return (
     <div className="purches__inform">
@@ -33,7 +29,7 @@ const ProductInfo = ({ product }) => {
       <p className="purches__inform-category">{product.category}</p>
       <div className="payGroup">
         <p className="payGroup-price">{product.price}₽</p>
-        <button onClick={()=>{addCarts(product)}}>Купить</button>
+        <button form="chengePSC" onClick={()=>{addCarts(product)}}>Купить</button>
         <div className="payGroup-favorite">
           <img
             onClick={() => favoritesHandler(product)}
@@ -48,7 +44,7 @@ const ProductInfo = ({ product }) => {
         </div>
       </div>
       <div className="chengeParamets">
-        <div className="chengeColor">
+        {/* <div className="chengeColor">
           <div
             onClick={() => setColorVisible((prev) => !prev)}
             className="select"
@@ -86,10 +82,12 @@ const ProductInfo = ({ product }) => {
             ></li>
             <span></span>
           </ul>
-        </div>
+        </div> */}
 
-        <form action="submit" className="chengePSC">
-          <button
+
+
+        <form  className="chengePSC">
+          <button type="button"
             onClick={() => {
               setSelectedPSC((prev) => {
                 return prev > 0 ? prev - 1 : 0;
@@ -109,7 +107,7 @@ const ProductInfo = ({ product }) => {
               setSelectedPSC(isNaN(inputValue) ? 0 : inputValue); // Если введено не число, то устанавливаем 0
             }}
           />
-          <button
+          <button type="button"
             onClick={() => {
               setSelectedPSC((prev) => Number(prev) + 1);
               addCardsCountPlus(product.id)
@@ -118,6 +116,7 @@ const ProductInfo = ({ product }) => {
             +
           </button>
         </form>
+
 
         <div className="chengeSize">
           <div

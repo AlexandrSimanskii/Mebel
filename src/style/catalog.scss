@@ -1,6 +1,7 @@
 .catalog {
   &__inner {
     display: flex;
+    column-gap: 1.5rem;
   }
   &__aside {
     display: flex;
@@ -21,7 +22,7 @@
       flex-direction: column;
       row-gap: 1rem;
     }
-    &-btns{
+    &-btns {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -30,14 +31,26 @@
     }
   }
   &__content {
+    text-align: center;
     width: 100%;
-    display: flex;
-    column-gap: 3rem;
 
-    flex-wrap: wrap;
-    justify-content: space-between;
-    & .card {
-      width: calc(33% - 2rem);
+    &_inner {
+      width: 100%;
+      display: flex;
+      column-gap: 3rem;
+
+      flex-wrap: wrap;
+      justify-content: space-between;
+      & .card {
+        width: calc(33% - 2rem);
+      }
+    }
+    &_btns {
+      display: flex;
+      justify-content: center;
+      p{
+        padding: 0 1rem;
+      }
     }
   }
 }

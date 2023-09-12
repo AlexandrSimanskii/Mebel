@@ -4,15 +4,38 @@ import { CustomContext } from "../../utils/Context/Context";
 import axios from "../../utils/Axios/axios";
 
 const Header = () => {
-  const { logOutUser, user, navigate, search, setSearch, location } =
-    useContext(CustomContext);
+  const {
+    logOutUser,
+    user,
+    navigate,
+    search,
+    setSearch,
+    location,
+    category,
+    setCategory,
+    setProducts,
+  } = useContext(CustomContext);
+  console.log(category);
 
- 
+  const getCategory = (event) => {
+    if (event.target.localName === "li") {
+      const newCategory = event.target.textContent;
+      setCategory(newCategory);
+
+      try {
+        axios(`products?category_like=${newCategory}`).then((res) => {
+          setProducts(res.data);
+          navigate("/catalog");
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   useEffect(() => {
     location.pathname !== "/catalog" && setSearch("");
   }, [location.pathname]);
- 
 
   return (
     <div className="header">
@@ -28,7 +51,7 @@ const Header = () => {
                   <Link to={"about"}>О нас</Link>
                 </li>
                 <li>
-                  <a href="#">Контакты</a>
+                  <Link to={"room"}>Личный кабинет</Link>
                 </li>
               </ul>
             </div>
@@ -36,7 +59,7 @@ const Header = () => {
               <ul className="header__list">
                 <li>
                   <img src="../../../public/images/icons/phone.svg" alt="" />
-                  <a className="header__list-phone" href="#">
+                  <a className="header__list-phone" href="tel:89648999119">
                     8 (964) 89 99 119
                   </a>
                 </li>
@@ -69,24 +92,32 @@ const Header = () => {
                 location.pathname !== "/catalog" && navigate("/catalog"),
                   setSearch(event.target.value);
               }}
-              placeholder="Поиск"
+              placeholder="Введите категорию товаров"
               type="text"
               value={search}
             />
-            <div className={search.length?"closed":"displayNone"} onClick={() => setSearch("")}></div>
+            <div
+              className={search.length ? "closed" : "displayNone"}
+              onClick={() => setSearch("")}
+            ></div>
           </div>
           <div className="header-menu">
             <Link to={"/favorites"}>
-              <div className="menu-img active">
+              <div
+                className={`menu-img ${
+                  location.pathname == "/favorites" && "active"
+                }`}
+              >
                 <img
                   src="../../../public/images/icons/wishlist-icon.svg"
                   alt="heart"
                 />
               </div>
             </Link>
-            <div className="menu-img">
+            <div
+              className={`menu-img ${location.pathname == "/cart" && "active"}`}
+            >
               <Link to={user.email?.length ? "/cart" : "/login"}>
-                
                 <img src="../../../public/images/icons/bag.svg" alt="bag" />
               </Link>
             </div>
@@ -100,31 +131,15 @@ const Header = () => {
           </div>
         </div>
         <div className="header__nav">
-          <ul className="header__nav-list">
-            <li className="  nav-list-kitchen b">
-              Кухни
-            </li>
-            <li className="nav-list-bedroom">
-              Спальни
-            </li>
-            <li className="nav-list-livingRoom">
-            Гостиные
-            </li>
-            <li className="nav-list-hollway">
-            Прихожие
-            </li>
-            <li className="nav-list-office">
-            Офисная мебель
-            </li>
-            <li className="nav-list-childrensRoom">
-            Детские
-            </li>
-            <li className="nav-list-sale">
-            Акция
-            </li>
-            <li className="nav-list-new">
-            Новинки
-            </li>
+          <ul className="header__nav-list" onClick={getCategory}>
+            <li className="  nav-list-kitchen b">Кухни</li>
+            <li className="nav-list-bedroom">Спальни</li>
+            <li className="nav-list-livingRoom">Гостиные</li>
+            <li className="nav-list-hollway">Прихожие</li>
+            <li className="nav-list-office">Офисная мебель</li>
+            <li className="nav-list-childrensRoom">Детские</li>
+            <li className="nav-list-sale">Акция</li>
+            <li className="nav-list-new">Новинки</li>
           </ul>
         </div>
       </div>

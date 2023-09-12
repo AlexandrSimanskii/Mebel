@@ -12,6 +12,10 @@ const HitSale = () => {
   }, []);
 
 
+
+
+  
+
   return (
     <>
       <div className="cards">

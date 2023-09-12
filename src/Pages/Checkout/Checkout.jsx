@@ -8,33 +8,32 @@ const Checkout = () => {
   const [payCash, setPayCash] = useState(false);
   const [popupTimer, setPopupTimer] = useState(10);
   const [popup, setPopup] = useState(false);
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+ 
+
   const submitForm = (data) => {
     let order = {
       ...data,
       order: user.carts,
+      
       totalPrice: user.carts?.reduce((acc, el) => acc + el.price * el.count, 0),
     };
-    addOrders(order, setPopup,redirect);
+    addOrders(order, setPopup, redirect);
   };
 
   const redirect = () => {
     setInterval(() => {
-      // if (popupTimer < 1) {
-      //   navigate("/");
-      // }
       setPopupTimer((prev) => {
         return prev > 1 ? prev - 1 : navigate("/");
       });
     }, 1000);
   };
-
-
 
   return (
     <section className="checkout">
@@ -65,11 +64,7 @@ const Checkout = () => {
               </div>
               <div className="form__field">
                 <h5>Адресс покупателя</h5>
-                <input
-                  {...register("country")}
-                  placeholder="Страна"
-                  type="text"
-                />
+
                 <input {...register("city")} placeholder="Город" type="text" />
                 <input
                   {...register("street")}
@@ -97,11 +92,8 @@ const Checkout = () => {
 
             <div className="order__inform">
               <table>
-                <thead>
-                  <tr>
-                    <th>Ваш заказ</th>
-                  </tr>
-                </thead>
+                <caption>Ваш заказ</caption>
+                <thead></thead>
 
                 <tbody>
                   <tr>
@@ -161,11 +153,7 @@ const Checkout = () => {
                 </label>
               </div> */}
 
-                <button
-                
-                >
-                  Разместить заказ
-                </button>
+                <button>Разместить заказ</button>
               </div>
             </div>
           </form>

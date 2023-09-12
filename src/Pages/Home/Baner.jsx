@@ -4,12 +4,20 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useNavigate } from "react-router-dom";
+import { CustomContext } from "../../utils/Context/Context";
+import { useContext } from "react";
 
 const Banner = () => {
+  const { setCategory } = useContext(CustomContext);
+
   const navigate = useNavigate();
 
+const toCotalog=()=>{ navigate("/catalog");
+setCategory("")}
+
+
   return (
-    <section className="banner">
+    <section className="banner" onClick={(event)=>console.log(event)}>
       <div className="container">
         <Swiper
           loop={true}
@@ -19,8 +27,13 @@ const Banner = () => {
           pagination={{ clickable: true }}
           modules={[Navigation, Autoplay, Pagination]}
           className="mySwiper"
+       
         >
-          <SwiperSlide onClick={() => navigate("/catalog")}>
+          <SwiperSlide
+            // onClick={() => {
+            //  toCotalog()
+            // }}
+          >
             <div className="banner__info">
               <h2 className="banner__title">
                 loft <br />
@@ -32,7 +45,11 @@ const Banner = () => {
               <button className="banner__btn">СМОТРЕТЬ КАТАЛОГ</button>
             </div>
           </SwiperSlide>
-          <SwiperSlide onClick={() => navigate("/catalog")}>
+          <SwiperSlide
+            onClick={() => {
+              navigate("/catalog");
+            }}
+          >
             <div className="banner__info">
               <h2 className="banner__title">
                 loft <br />

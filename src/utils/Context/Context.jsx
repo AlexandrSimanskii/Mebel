@@ -1,7 +1,7 @@
 import axios from "../../utils/Axios/axios";
 import { createContext, useEffect } from "react";
 import { useState } from "react";
-import { json, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const CustomContext = createContext();
 
@@ -12,6 +12,8 @@ const Context = (props) => {
   const [hitSale, setHitSale] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [search, setSearch] = useState("");
+  const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState("");
 
   // startUserContent
   useEffect(() => {
@@ -74,12 +76,27 @@ const Context = (props) => {
     }
   };
 
-  // Added in the cart
+  // Получить сегодняшнюю дату
+  const getToday = () => {
+    const currentDate = new Date();
 
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear();
+
+    const formattedDay = day < 10 ? `0${day}` : day;
+    const formattedMonth = month < 10 ? `0${month}` : month;
+
+    const formattedDate = `${formattedDay}.${formattedMonth}.${year}`;
+
+    return formattedDate;
+  };
+
+  // Added in the cart
   const addCarts = (product) => {
     axios
       .patch(`users/${user.id}`, {
-        carts: [...user.carts, { ...product, count: 1 }],
+        carts: [...user.carts, { ...product, count: 1, data: getToday() }],
       })
       .then((res) => {
         console.log(res.data);
@@ -156,6 +173,14 @@ const Context = (props) => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
+
+
+
+
+
+
+
+
   const value = {
     user,
     setUser,
@@ -174,6 +199,10 @@ const Context = (props) => {
     addCardsCountPlus,
     addCardsCountMinus,
     addOrders,
+    category,
+    setCategory,
+    products,
+    setProducts,
   };
 
   return (

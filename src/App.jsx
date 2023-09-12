@@ -6,7 +6,7 @@ import About from "./Pages/About/About";
 import NotFound from "./Pages/NotFound/NotFound";
 import Catalog from "./Pages/Catalog/Catalog";
 import Checkout from "./Pages/Checkout/Checkout";
-import PersonAccount from "./Pages/PersonAccount/PersonAccount";
+import PersonRoom from "./Pages/PersonRoom/PersonRoom";
 import CardProduct from "./Pages/CardProduct/CardProduct";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
@@ -26,7 +26,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/product/:id" element={<CardProduct />} />
-          <Route path="/account" element={<PersonAccount />} />
+          <Route path="/room" element={<PersonRoom />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

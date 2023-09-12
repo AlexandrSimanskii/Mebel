@@ -5,12 +5,13 @@ import axios from "../../utils/Axios/axios";
 import Card from "../../Component/Card/Card";
 
 const Catalog = () => {
-  const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState("");
+  const { search, setSearch, products, setProducts,category,setCategory } =
+    useContext(CustomContext);
+
+  const [pages, setPages] = useState(1);
+  // const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
   const [slider, setSlider] = useState([0, 300000]);
-
-  const { search, setSearch } = useContext(CustomContext);
 
   const getMinMaxPrice = (prod) => {
     let allPrices = [];
@@ -22,20 +23,33 @@ const Catalog = () => {
     setSlider([allPrices[0], allPrices.at(-1)]);
   };
 
+  const getProduct = () => {
+    
+    axios.get(`/products?sort_like=${search}`).then((res) => {
+      setProducts(res.data);
+    })
+  };
+useEffect(() => getProduct(), [search])
+ 
+
   useEffect(() => {
     try {
-      axios.get("products?&_limit=6").then((res) => {
+      axios.get(`products?category_like=${category}&_page=${pages}&_limit=6`).then((res) => {
         setProducts(res.data);
         res.data.length && getMinMaxPrice(res.data);
       });
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [pages]);
+
+
 
   useEffect(() => {
     products.length && getMinMaxPrice(products);
   }, [products]);
+
+console.log(category);
 
   return (
     <main>
@@ -52,13 +66,33 @@ const Catalog = () => {
               setProducts={setProducts}
             />
             <div className="catalog__content">
-              {products.map((item) => {
-                return (
-                  <Fragment key={item.id}>
-                    <Card item={item} />
-                  </Fragment>
-                );
-              })}
+              <div className="catalog__content_inner">
+                {products.map((item) => {
+                  return (
+                    <Fragment key={item.id}>
+                      <Card item={item} />
+                    </Fragment>
+                  );
+                })}
+              </div>
+
+              <div className="catalog__content_btns">
+                <button
+                  onClick={() => {
+                    pages > 1 ? setPages((prev) => prev - 1) : null;
+                  }}
+                >
+                  -
+                </button>
+                <p>{pages}</p>
+                <button
+                  onClick={() => {
+                    setPages((prev) => prev + 1);
+                  }}
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
         </div>

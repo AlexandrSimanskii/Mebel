@@ -6,15 +6,21 @@
 
 //   console.log(GetSum(-6,10));
 
-const inData =
-  "user.name.firstname=Bob&user.name.lastname=Smith$user.favoritecolor=Light%20Blue&experiments.theme=dark";
-
-let a = {
-  user: {
-    name: {
-      firstname: "Bob",
-      lastname: "Smith",
-    },
-    favoritecolor: L,
-  },
-};
+function duplicateCount(text) {
+  let sum = 0;
+  let obj = {};
+  for (let i = 0; i < text.length - 1; i++) {
+    if (text[i].toUpperCase() in obj) {
+      obj[text[i].toUpperCase()]++;
+    } else {
+     
+      obj[text[i].toUpperCase()] = 1;
+    }
+  }
+  for (let key in obj) {
+    obj[key] > 1 ? sum++ : null;
+  }
+ return obj
+}
+;
+console.log(duplicateCount("characters"));
