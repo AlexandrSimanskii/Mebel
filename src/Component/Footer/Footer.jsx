@@ -1,5 +1,5 @@
 import NavList from "../NavList/NavList";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="footer">
@@ -15,13 +15,13 @@ const Footer = () => {
             </p>
             <div className="bottom-line">
               <p className="phone">
-                <a href="#">8 (964) 89 99 119</a>
+                <a href="tel:89648999119">8 (964) 89 99 119</a>
               </p>
               <p className="insta">
-                <a href="#">INSTAGRAM</a>
+                <Link   to={"https://www.instagram.com/"}   target="_blank">INSTAGRAM</Link>
               </p>
               <p className="mail">
-                <a href="#">mebel_loft_anapa@mail.ru</a>
+                <Link to={"https://mail.google.com/mail/u/0/#inbox"} target="_blank">mebel_loft_anapa@mail.ru</Link>
               </p>
             </div>
           </div>

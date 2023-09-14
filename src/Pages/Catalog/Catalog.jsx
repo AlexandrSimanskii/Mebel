@@ -92,8 +92,7 @@ const Catalog = () => {
                   );
                 })}
               </div>
-
-              <div className="catalog__content_btns">
+{countPages===1?"":    <div className="catalog__content_btns">
                 <button
                   onClick={() => {
                     pages > 1 ? setPages((prev) => prev - 1) : null;
@@ -109,7 +108,8 @@ const Catalog = () => {
                 >
                   +
                 </button>
-              </div>
+              </div>}
+          
             </div>
           </div>
         </div>

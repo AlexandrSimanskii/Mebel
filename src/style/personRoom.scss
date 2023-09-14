@@ -86,11 +86,11 @@
       }
     }
     table {
-      background-color: aqua;
+    
       overflow-y: scroll;
       display: block;
-      height: 100vh;
-      border: 1px solid var(--button-color);
+      max-height: 100vh;
+      
       caption {
         text-align: left;
         margin-bottom: 2rem;

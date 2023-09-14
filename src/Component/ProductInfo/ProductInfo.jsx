@@ -16,8 +16,10 @@ const ProductInfo = ({ product }) => {
   const [selectedPSC, setSelectedPSC] = useState(1);
 
  
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  // const { register, handleSubmit } = useForm();
+  // const onSubmit = (data) => console.log(data);
+
+
 useEffect(()=>{setBtnPayVisible(!user.carts.some((item) => item.id === product.id))},[])
   
 
@@ -33,25 +35,27 @@ useEffect(()=>{setBtnPayVisible(!user.carts.some((item) => item.id === product.i
             onClick={() => {
               addCarts(product);
               setBtnPayVisible(false)
+              setSelectedPSC(1)
             }}
           >
             Купить
           </button>
         ) : (
-          <form className="chengePSC">
+          <div className="chengePSC">
             <button
               type="button"
               onClick={() => {
                 setSelectedPSC((prev) => {
              
-                  return prev > 0 ? prev - 1 : setBtnPayVisible(true);
+                  return prev > 1 ? prev - 1 : setBtnPayVisible(true);
+                  
                 });
                 addCardsCountMinus(product.id);
               }}
             >
               -
             </button>
-            <p>8</p>
+            <p>{selectedPSC}</p>
             {/* <input
               placeholder="0"
               type="number"
@@ -71,7 +75,7 @@ useEffect(()=>{setBtnPayVisible(!user.carts.some((item) => item.id === product.i
             >
               +
             </button>
-          </form>
+          </div>
         )}
 
         <div className="payGroup-favorite">
@@ -87,49 +91,7 @@ useEffect(()=>{setBtnPayVisible(!user.carts.some((item) => item.id === product.i
           <p>Добавить в желаемое</p>
         </div>
       </div>
-      <div className="chengeParamets">
-        {/* <div className="chengeSize">
-          <div
-            className="select"
-            onClick={() => setSizeVisible((prev) => !prev)}
-          >
-            <div className="selected selected-size"> {selectedSize}</div>
-            <img
-              className={sizeVisible ? "rotateImg" : ""}
-              src="../../../public/images/icons/Tick.svg"
-              alt="arrow"
-            />
-          </div>
-
-          <ul className={sizeVisible ? "option" : "option displayNone"}>
-            <li
-              onClick={() => {
-                setSelectedSize("218 СМ×95 СМ×90 СМ", setSizeVisible(false));
-              }}
-              className="option__size"
-            >
-              218 СМ×95 СМ×90 СМ
-            </li>
-            <li
-              onClick={() => {
-                setSelectedSize(" 318 СМ×95 СМ×90 СМ"), setSizeVisible(false);
-              }}
-              className="option__size "
-            >
-              318 СМ×95 СМ×90 СМ
-            </li>
-            <li
-              onClick={() => {
-                setSelectedSize("418 СМ×95 СМ×90 СМ"), setSizeVisible(false);
-              }}
-              className="option__size "
-            >
-              418 СМ×95 СМ×90 СМ
-            </li>
-            <span></span>
-          </ul>
-        </div> */}
-      </div>
+     
       <div className="productDescription">
         <h4>Описание</h4>
         <p>{product.description}</p>
