@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect,  } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
-import axios from "../../utils/Axios/axios";
+import NavList from "../NavList/NavList";
+
 
 const Header = () => {
   const {
@@ -15,22 +16,13 @@ const Header = () => {
     hitSale,
     setPages,
   } = useContext(CustomContext);
-  const { pathname } = useLocation();
+ 
 
-  const getCategory = (event) => {
-    if (event.target.localName === "li") {
-      const newCategory = event.target.textContent;
-      setCategory(newCategory == "Акция" ? hitSale : newCategory);
-      pathname == "/catalog" ? null : navigate("/catalog");
-      setPages(1)
-    }
-  };
+
 
   useEffect(() => {
     location.pathname !== "/catalog" && setSearch("");
   }, [location.pathname]);
-
-  console.log(hitSale);
 
   return (
     <div className="header">
@@ -58,15 +50,15 @@ const Header = () => {
                     8 (964) 89 99 119
                   </a>
                 </li>
-                <li>
+                <li ><Link to={"/about"}>
                   <img
                     className="img"
                     src="../../../public/images/icons/delivery-icon.svg"
                     alt=""
                   />
-                  <a className="header__list-deliver" href="#">
+                  <p className="header__list-deliver" href="#">
                     Доставка
-                  </a>
+                  </p></Link>
                 </li>
               </ul>
             </div>
@@ -126,15 +118,7 @@ const Header = () => {
           </div>
         </div>
         <div className="header__nav">
-          <ul className="header__nav-list" onClick={getCategory}>
-            <li className="  nav-list-kitchen b">Кухни</li>
-            <li className="nav-list-bedroom">Спальни</li>
-            <li className="nav-list-livingRoom">Гостиные</li>
-            <li className="nav-list-hollway">Прихожие</li>
-            <li className="nav-list-office">Офисная мебель</li>
-            <li className="nav-list-childrensRoom">Детские</li>
-            <li className="nav-list-sale">Акция</li>
-          </ul>
+        <NavList/>
         </div>
       </div>
     </div>

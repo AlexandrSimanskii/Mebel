@@ -15,6 +15,7 @@ const Context = (props) => {
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("");
+  const [activeItem,setActiveItem]=useState(null)
 
   // startUserContent
   useEffect(() => {
@@ -198,6 +199,7 @@ const Context = (props) => {
     setProducts,
     pages,
     setPages,
+    activeItem,setActiveItem
   };
 
   return (

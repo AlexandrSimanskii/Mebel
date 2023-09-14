@@ -11,7 +11,7 @@ const{user}=useContext(CustomContext)
     <section className="about">
       <div className="container">
         <div className="about-inner">
-          <h3>Свяжитесь с нами</h3>
+          <h3>Свяжитесь с нами для доставки</h3>
           <div className="about-inform">
             <form className="about-form" action="submit">
               <label>

@@ -59,7 +59,9 @@ const Catalog = () => {
   useEffect(() => {
     products.length && getMinMaxPrice(products);
   }, [products]);
-console.log(countPages);
+
+
+
   return (
     <main>
       <div className="catalog">
@@ -67,6 +69,9 @@ console.log(countPages);
           <div className="catalog__inner">
             <AsideFilter
               slider={slider}
+            
+            
+            
               setSlider={setSlider}
               category={category}
               setCategory={setCategory}
@@ -76,6 +81,9 @@ console.log(countPages);
             />
             <div className="catalog__content">
               <div className="catalog__content_inner">
+                
+                
+                
                 {products.map((item) => {
                   return (
                     <Fragment key={item.id}>

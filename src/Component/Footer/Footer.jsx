@@ -1,56 +1,11 @@
+import NavList from "../NavList/NavList";
+
 const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
         <div className="footer-nav">
-          <table className="footer__table">
-            <caption>Навигация</caption>
-            <tbody>
-              <tr>
-                <td>
-                  <a href="#">Кухни </a>
-                </td>
-                <td>
-                  <a href="#">Прихожие</a>
-                </td>
-                <td>
-                  <a href="#">Шкафы</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#">Спальни</a>
-                </td>
-                <td>
-                  <a href="#">Офисная мебель </a>
-                </td>
-                <td>
-                  <a href="#">Матрасы</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#">Гостинные </a>
-                </td>
-                <td>
-                  <a href="#"> Детская</a>
-                </td>
-                <td>
-                  <a href="#">Мягкая мебель</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a className="active" href="#">
-                    Акция
-                  </a>
-                </td>
-                <td>
-                  <a href="#">Новинки</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+   <NavList/>
           <div className="inform">
             <h2 className="inform-title">LM</h2>
             <p className="adress">

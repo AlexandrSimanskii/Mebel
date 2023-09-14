@@ -8,7 +8,7 @@
       display: flex;
       justify-content: space-between;
     }
-    &-right li {
+    &-right a,li {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -99,7 +99,7 @@
     }
   }
 
-  &__nav-list {
+  & .nav-list {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
     display: flex;
     column-gap: 5rem;
@@ -108,7 +108,7 @@
     height: 70px;
     padding: 1rem;
 
-    .active {
+   li.active {
       color:var(--color-active);
     }
     & a {
