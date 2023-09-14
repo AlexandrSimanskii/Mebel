@@ -8,6 +8,7 @@ export const CustomContext = createContext();
 const Context = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [pages, setPages] = useState(1);
   const [user, setUser] = useState({ Email: "" });
   const [hitSale, setHitSale] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -173,14 +174,6 @@ const Context = (props) => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
-
-
-
-
-
-
-
-
   const value = {
     user,
     setUser,
@@ -203,6 +196,8 @@ const Context = (props) => {
     setCategory,
     products,
     setProducts,
+    pages,
+    setPages,
   };
 
   return (

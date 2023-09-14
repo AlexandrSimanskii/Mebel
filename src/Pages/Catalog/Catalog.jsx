@@ -5,11 +5,16 @@ import axios from "../../utils/Axios/axios";
 import Card from "../../Component/Card/Card";
 
 const Catalog = () => {
-  const { search, setSearch, products, setProducts,category,setCategory } =
-    useContext(CustomContext);
-
-  const [pages, setPages] = useState(1);
-  // const [category, setCategory] = useState("");
+  const {
+    search,
+    products,
+    setProducts,
+    category,
+    setCategory,
+    pages,
+    setPages,
+  } = useContext(CustomContext);
+  const [countPages, setCountPages] = useState(0);
   const [sort, setSort] = useState("");
   const [slider, setSlider] = useState([0, 300000]);
 
@@ -24,33 +29,37 @@ const Catalog = () => {
   };
 
   const getProduct = () => {
-    
     axios.get(`/products?sort_like=${search}`).then((res) => {
       setProducts(res.data);
-    })
+    });
   };
-useEffect(() => getProduct(), [search])
- 
+  useEffect(() => getProduct(), [search]);
 
   useEffect(() => {
     try {
-      axios.get(`products?category_like=${category}&_page=${pages}&_limit=6`).then((res) => {
-        setProducts(res.data);
-        res.data.length && getMinMaxPrice(res.data);
+      Promise.all([
+        axios.get(`products?category_like=${category}&_page=${pages}&_limit=6`),
+        axios.get(`products?category_like=${category}`),
+      ]).then(([pagedProductsResponse, allProductsResponse]) => {
+        const pagedProducts = pagedProductsResponse.data;
+        const allProducts = allProductsResponse.data;
+
+        setProducts(pagedProducts);
+        pagedProducts.length && getMinMaxPrice(pagedProducts);
+
+        
+        const countPages = Math.ceil(allProducts.length / 6);
+        setCountPages(countPages);
       });
     } catch (error) {
       console.log(error);
     }
-  }, [pages]);
-
-
+  }, [pages, category]);
 
   useEffect(() => {
     products.length && getMinMaxPrice(products);
   }, [products]);
-
-console.log(category);
-
+console.log(countPages);
   return (
     <main>
       <div className="catalog">
@@ -87,7 +96,7 @@ console.log(category);
                 <p>{pages}</p>
                 <button
                   onClick={() => {
-                    setPages((prev) => prev + 1);
+                    setPages((prev) => (countPages > prev ? prev + 1 : prev));
                   }}
                 >
                   +

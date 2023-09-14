@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
 import axios from "../../utils/Axios/axios";
 
@@ -11,31 +11,26 @@ const Header = () => {
     search,
     setSearch,
     location,
-    category,
     setCategory,
-    setProducts,
+    hitSale,
+    setPages,
   } = useContext(CustomContext);
-  console.log(category);
+  const { pathname } = useLocation();
 
   const getCategory = (event) => {
     if (event.target.localName === "li") {
       const newCategory = event.target.textContent;
-      setCategory(newCategory);
-
-      try {
-        axios(`products?category_like=${newCategory}`).then((res) => {
-          setProducts(res.data);
-          navigate("/catalog");
-        });
-      } catch (error) {
-        console.log(error);
-      }
+      setCategory(newCategory == "Акция" ? hitSale : newCategory);
+      pathname == "/catalog" ? null : navigate("/catalog");
+      setPages(1)
     }
   };
 
   useEffect(() => {
     location.pathname !== "/catalog" && setSearch("");
   }, [location.pathname]);
+
+  console.log(hitSale);
 
   return (
     <div className="header">
@@ -139,7 +134,6 @@ const Header = () => {
             <li className="nav-list-office">Офисная мебель</li>
             <li className="nav-list-childrensRoom">Детские</li>
             <li className="nav-list-sale">Акция</li>
-            <li className="nav-list-new">Новинки</li>
           </ul>
         </div>
       </div>

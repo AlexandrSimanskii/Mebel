@@ -86,9 +86,14 @@
       }
     }
     table {
+      background-color: aqua;
+      overflow-y: scroll;
+      display: block;
+      height: 100vh;
       border: 1px solid var(--button-color);
       caption {
         text-align: left;
+        margin-bottom: 2rem;
       }
       border-collapse: collapse;
       td {
@@ -103,7 +108,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 50%;
     img {
       width: 100%;
