@@ -15,7 +15,10 @@ const Context = (props) => {
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("");
-  const [activeItem,setActiveItem]=useState(null)
+
+
+
+  const [activeItem, setActiveItem] = useState(null)
 
   // startUserContent
   useEffect(() => {
@@ -33,6 +36,10 @@ const Context = (props) => {
       .post("/register", user)
       .then((res) => {
         setUser(res.data.user);
+
+
+
+
 
         navigate("/");
         localStorage.setItem("user", JSON.stringify(user));
@@ -137,11 +144,11 @@ const Context = (props) => {
         carts:
           user.carts.find((item) => item.id === id).count > 1
             ? user.carts.map((item) => {
-                if (item.id === id) {
-                  return { ...item, count: item.count - 1 };
-                }
-                return item;
-              })
+              if (item.id === id) {
+                return { ...item, count: item.count - 1 };
+              }
+              return item;
+            })
             : user.carts.filter((item) => item.id !== id),
       })
       .then((res) => {
@@ -199,7 +206,7 @@ const Context = (props) => {
     setProducts,
     pages,
     setPages,
-    activeItem,setActiveItem
+    activeItem, setActiveItem
   };
 
   return (

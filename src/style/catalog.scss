@@ -1,20 +1,23 @@
-.catalog {   
-
-  
+.catalog {
   &__inner {
     display: flex;
     column-gap: 1.5rem;
-    & .card{
+    & .card {
       height: 350px;
     }
   }
+
   &__aside {
     display: flex;
     row-gap: 20px;
+
     flex-direction: column;
     position: sticky;
+
     top: 10px;
+
     max-width: 26rem;
+
     width: 100%;
     height: fit-content;
     box-shadow: 0px -1px 2px 0 rgba(0, 0, 0, 0.2);
@@ -26,7 +29,6 @@
       display: flex;
       flex-direction: column;
       row-gap: 1rem;
-    
     }
     &-btns {
       width: 100%;
@@ -40,10 +42,9 @@
     position: relative;
     text-align: center;
     width: 100%;
- 
 
-   
-    &_inner { height: 120vh;
+    &_inner {
+      height: 120vh;
       width: 100%;
       display: flex;
       column-gap: 3rem;
@@ -55,32 +56,45 @@
       }
     }
 
-
     &_btns {
       position: absolute;
       bottom: 0;
       left: 50%;
-      transform: translate(-50%,50%);
+      transform: translate(-50%, 50%);
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 2rem;
       button {
         border-radius: 4px;
-        background: 
-          linear-gradient(180deg, rgba(255, 255, 255, 0.2) -48.15%, rgba(0, 0, 0, 0.2) 100%),
-          linear-gradient(179deg, rgba(255, 255, 255, 0.21) 8.29%, rgba(0, 0, 0, 0) 98.96%),
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.2) -48.15%,
+            rgba(0, 0, 0, 0.2) 100%
+          ),
+          linear-gradient(
+            179deg,
+            rgba(255, 255, 255, 0.21) 8.29%,
+            rgba(0, 0, 0, 0) 98.96%
+          ),
           linear-gradient(180deg, #245462 0%, #083f50 100%);
       }
-      
+
       button:active {
         border-radius: 4px;
-        background: 
-          linear-gradient(169deg, rgba(255, 255, 255, 0.2) 2.3%, rgba(0, 0, 0, 0.2) 92.13%),
-          linear-gradient(89deg, rgba(0, 0, 0, 0.21) 49.17%, rgba(0, 0, 0, 0.21) 56.22%),
+        background: linear-gradient(
+            169deg,
+            rgba(255, 255, 255, 0.2) 2.3%,
+            rgba(0, 0, 0, 0.2) 92.13%
+          ),
+          linear-gradient(
+            89deg,
+            rgba(0, 0, 0, 0.21) 49.17%,
+            rgba(0, 0, 0, 0.21) 56.22%
+          ),
           linear-gradient(180deg, #245462 0%, #083f50 100%);
       }
-     
+
       p {
         padding: 0 1rem;
       }

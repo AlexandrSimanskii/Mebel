@@ -8,7 +8,8 @@
       display: flex;
       justify-content: space-between;
     }
-    &-right a,li {
+    &-right a,
+    li {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -32,7 +33,10 @@
     display: flex;
     justify-content: space-between;
     column-gap: 4rem;
-
+    button {
+      background-color: white;
+      padding: 1rem 3rem;
+    }
     & .header-menu {
       display: flex;
       align-items: center;
@@ -41,11 +45,10 @@
       & .menu-img {
         position: relative;
         cursor: pointer;
-       
-       
-       &:hover{
-        top: -1px;
-       }
+
+        &:hover {
+          top: -1px;
+        }
       }
       & .menu-img.active::before {
         content: "";
@@ -54,7 +57,7 @@
         height: 7px;
         top: 0;
         right: -2px;
-        background-color:var(--color-active);
+        background-color: var(--color-active);
         border-radius: 50%;
       }
     }
@@ -80,36 +83,35 @@
         background: url(../../public/images/icons/search-icon.svg);
         z-index: 2;
       }
-      & .closed{
-   &::after {
-        content: "";
-        width: 16px;
-        height: 16px;
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
+      & .closed {
+        &::after {
+          content: "";
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          transform: translateY(-50%);
 
-        background: url(../../public/images/icons/closed.svg);
-        background-size: cover;
-        z-index: 2;
+          background: url(../../public/images/icons/closed.svg);
+          background-size: cover;
+          z-index: 2;
+        }
       }
-      }
-   
     }
   }
 
   & .nav-list {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
     display: flex;
-    column-gap: 5rem;
+
     justify-content: space-between;
     overflow: hidden;
     height: 70px;
     padding: 1rem;
 
-   li.active {
-      color:var(--color-active);
+    li.active {
+      color: var(--color-active);
     }
     & a {
       font-size: 1.4rem;
@@ -247,4 +249,7 @@
       background-size: contain;
     }
   }
+}
+
+@media (max-width: 1500px) {
 }

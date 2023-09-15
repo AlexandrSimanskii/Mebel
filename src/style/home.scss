@@ -13,6 +13,7 @@
     height: 32rem;
     background-repeat: no-repeat;
     background-size: cover;
+
     background-position: center;
     padding: 7rem 0 0 9rem;
   }
@@ -73,8 +74,8 @@
     height: 30px !important;
     border-radius: 5px;
     margin: 25px;
-    transition: transform .5s;
-    &:hover{
+    transition: transform 0.5s;
+    &:hover {
       transform: scale(1.2);
     }
   }

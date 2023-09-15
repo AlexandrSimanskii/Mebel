@@ -1,4 +1,4 @@
-import { useContext, useEffect,  } from "react";
+import { useContext, useEffect, } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
 import NavList from "../NavList/NavList";
@@ -16,7 +16,6 @@ const Header = () => {
     hitSale,
     setPages,
   } = useContext(CustomContext);
- 
 
 
 
@@ -27,7 +26,14 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header__top">
+
         <div className="container">
+
+
+
+
+
+
           <div className="header__top-wrapper">
             <div className="header__top-left">
               <ul className="header__list">
@@ -68,6 +74,8 @@ const Header = () => {
 
       <div className="container">
         <div className="header__main">
+          <button>
+            <img src="../../../public/images/icons/menu-icon.svg" alt="" /></button>
           <Link to={"/"}>
             <h1>
               <img src="../../../public/images/image/LOGO.svg" alt="" />
@@ -75,6 +83,10 @@ const Header = () => {
           </Link>
           <div className="header-search">
             <input
+
+
+
+
               onChange={(event) => {
                 location.pathname !== "/catalog" && navigate("/catalog"),
                   setSearch(event.target.value);
@@ -91,9 +103,8 @@ const Header = () => {
           <div className="header-menu">
             <Link to={"/favorites"}>
               <div
-                className={`menu-img ${
-                  location.pathname == "/favorites" && "active"
-                }`}
+                className={`menu-img ${location.pathname == "/favorites" && "active"
+                  }`}
               >
                 <img
                   src="../../../public/images/icons/wishlist-icon.svg"
@@ -118,7 +129,7 @@ const Header = () => {
           </div>
         </div>
         <div className="header__nav">
-        <NavList/>
+          <NavList />
         </div>
       </div>
     </div>
