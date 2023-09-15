@@ -7,6 +7,7 @@ const PersonRoom = () => {
   const { user, setUser } = useContext(CustomContext);
   const [orders, setOrders] = useState([]);
   const [pop, setPop] = useState(false);
+
   const getAllOrders = () => {
     let order = user?.orders?.map((item) => item.order).flat();
     return order;
@@ -44,7 +45,7 @@ const PersonRoom = () => {
           </ul>
           <div className="room__bottom">
           
-{user.id && <table>
+{user.orders.length && <table>
               <caption>Купленные товары</caption>
               <thead>
                 <tr>

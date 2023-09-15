@@ -1,56 +1,11 @@
+import NavList from "../NavList/NavList";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
         <div className="footer-nav">
-          <table className="footer__table">
-            <caption>Навигация</caption>
-            <tbody>
-              <tr>
-                <td>
-                  <a href="#">Кухни </a>
-                </td>
-                <td>
-                  <a href="#">Прихожие</a>
-                </td>
-                <td>
-                  <a href="#">Шкафы</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#">Спальни</a>
-                </td>
-                <td>
-                  <a href="#">Офисная мебель </a>
-                </td>
-                <td>
-                  <a href="#">Матрасы</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#">Гостинные </a>
-                </td>
-                <td>
-                  <a href="#"> Детская</a>
-                </td>
-                <td>
-                  <a href="#">Мягкая мебель</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a className="active" href="#">
-                    Акция
-                  </a>
-                </td>
-                <td>
-                  <a href="#">Новинки</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+   <NavList/>
           <div className="inform">
             <h2 className="inform-title">LM</h2>
             <p className="adress">
@@ -60,13 +15,13 @@ const Footer = () => {
             </p>
             <div className="bottom-line">
               <p className="phone">
-                <a href="#">8 (964) 89 99 119</a>
+                <a href="tel:89648999119">8 (964) 89 99 119</a>
               </p>
               <p className="insta">
-                <a href="#">INSTAGRAM</a>
+                <Link   to={"https://www.instagram.com/"}   target="_blank">INSTAGRAM</Link>
               </p>
               <p className="mail">
-                <a href="#">mebel_loft_anapa@mail.ru</a>
+                <Link to={"https://mail.google.com/mail/u/0/#inbox"} target="_blank">mebel_loft_anapa@mail.ru</Link>
               </p>
             </div>
           </div>

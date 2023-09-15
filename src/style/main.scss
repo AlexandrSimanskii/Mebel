@@ -31,12 +31,15 @@ a {
   margin: 0 auto;
   padding: 0 20px;
 }
+
 .active {
   color: var(--color-active) !important;
 }
+
 .displayNone {
   display: none;
 }
+
 button {
   cursor: pointer;
   background-color: var(--main-color, #245462);

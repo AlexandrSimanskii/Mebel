@@ -1,5 +1,5 @@
 import SelectFilter from "../SelectFilter/SelectFilter";
-import Checkbox from "@mui/material/Checkbox";
+
 import RangeInput from "./RangeInput.jsx";
 import { Button } from "@mui/material";
 import { useContext } from "react";
@@ -7,7 +7,7 @@ import { CustomContext } from "../../utils/Context/Context";
 import axios from "../../utils/Axios/axios";
 
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+// const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const AsideFilter = ({
   sort,
@@ -15,12 +15,12 @@ const AsideFilter = ({
   category,
   setCategory,
   slider,
-  setSlider, setProducts
+  setSlider, setProducts,pages
 }) => {
 
 
-  const { search, setSearch } = useContext(CustomContext);
-  const colors = ["red", "green", "blue"];
+  const { search,  } = useContext(CustomContext);
+
 
   const resetFilter = () => {
     setSort("");
@@ -38,7 +38,7 @@ const AsideFilter = ({
         : sort.length
         ? `_sort=price&_order=desc`
         : ""
-    }`;
+    }&_page=${pages}&_limit=6`;
 
     let queryParamsFromTo = `price_gte=${slider[0]}&price_lte=${slider[1]}`;
 
@@ -56,15 +56,13 @@ const AsideFilter = ({
           state={category}
           setState={setCategory}
           array={[
-            "Барные стулья",
-            "Диваны",
-            "Двухспальные кровати",
-            "Буфеты",
-            "Комоды",
-            "Журнальные столы",
-            "Письменные столы",
-            "Шкафы",
-            "Детский диван",
+            "Кухни",
+            "Спальни",
+            "Гостиные",
+            "Прихожие",
+            "Офисная мебель",
+            "Детские",
+           
           ]}
         />
         <SelectFilter
