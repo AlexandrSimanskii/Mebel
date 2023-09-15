@@ -43,11 +43,9 @@ const Catalog = () => {
       ]).then(([pagedProductsResponse, allProductsResponse]) => {
         const pagedProducts = pagedProductsResponse.data;
         const allProducts = allProductsResponse.data;
-
         setProducts(pagedProducts);
         pagedProducts.length && getMinMaxPrice(pagedProducts);
 
-        
         const countPages = Math.ceil(allProducts.length / 6);
         setCountPages(countPages);
       });
@@ -59,7 +57,9 @@ const Catalog = () => {
   useEffect(() => {
     products.length && getMinMaxPrice(products);
   }, [products]);
-console.log(countPages);
+
+  console.log(666);
+
   return (
     <main>
       <div className="catalog">
