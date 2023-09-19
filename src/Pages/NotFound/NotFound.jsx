@@ -2,8 +2,10 @@
 
 const NotFound = () => {
     return (
-        <div>
-            NotFound
+        <div className="notFound">
+     
+     
+            <img src="../../../public/images/image/kot 4.png" alt="" />
         </div>
     );
 };

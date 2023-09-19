@@ -1,8 +1,7 @@
-import { useContext, useEffect, } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
 import NavList from "../NavList/NavList";
-
 
 const Header = () => {
   const {
@@ -17,8 +16,6 @@ const Header = () => {
     setPages,
   } = useContext(CustomContext);
 
-
-
   useEffect(() => {
     location.pathname !== "/catalog" && setSearch("");
   }, [location.pathname]);
@@ -26,14 +23,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header__top">
-
         <div className="container">
-
-
-
-
-
-
           <div className="header__top-wrapper">
             <div className="header__top-left">
               <ul className="header__list">
@@ -56,15 +46,17 @@ const Header = () => {
                     8 (964) 89 99 119
                   </a>
                 </li>
-                <li ><Link to={"/about"}>
-                  <img
-                    className="img"
-                    src="../../../public/images/icons/delivery-icon.svg"
-                    alt=""
-                  />
-                  <p className="header__list-deliver" href="#">
-                    Доставка
-                  </p></Link>
+                <li>
+                  <Link to={"/about"}>
+                    <img
+                      className="img"
+                      src="../../../public/images/icons/delivery-icon.svg"
+                      alt=""
+                    />
+                    <p className="header__list-deliver" href="#">
+                      Доставка
+                    </p>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -74,24 +66,21 @@ const Header = () => {
 
       <div className="container">
         <div className="header__main">
-          <button>
-            <img src="../../../public/images/icons/menu-icon.svg" alt="" /></button>
+          <button className="header__main-btn">
+            <img src="../../../public/images/icons/menu-icon.svg" alt="menu" />
+          </button>
           <Link to={"/"}>
-            <h1>
-              <img src="../../../public/images/image/LOGO.svg" alt="" />
-            </h1>
+         
+              <img src="../../../public/images/image/LOGO.svg" alt="logo" />
+          
           </Link>
           <div className="header-search">
             <input
-
-
-
-
               onChange={(event) => {
                 location.pathname !== "/catalog" && navigate("/catalog"),
                   setSearch(event.target.value);
               }}
-              placeholder="Введите категорию товаров"
+              placeholder="Поиск"
               type="text"
               value={search}
             />
@@ -103,8 +92,9 @@ const Header = () => {
           <div className="header-menu">
             <Link to={"/favorites"}>
               <div
-                className={`menu-img ${location.pathname == "/favorites" && "active"
-                  }`}
+                className={`menu-img ${
+                  location.pathname == "/favorites" && "active"
+                }`}
               >
                 <img
                   src="../../../public/images/icons/wishlist-icon.svg"
@@ -128,9 +118,9 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="header__nav">
+      
           <NavList />
-        </div>
+        
       </div>
     </div>
   );

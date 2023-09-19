@@ -1,0 +1,179 @@
+.header .nav-list {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+
+  justify-content: space-between;
+
+  white-space: wrap;
+  padding: 1.5rem;
+
+  li.active {
+    color: var(--color-active);
+  }
+  & a {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-color);
+    white-space: nowrap;
+    &:hover {
+      color: black;
+    }
+  }
+  & li {
+    position: relative;
+    padding-left: 43px;
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #313131;
+      transition: 1s;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+  & .nav-list-kitchen::before {
+    content: "";
+    width: 23px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 10;
+    background: url(../../public/images/icons/kitchen-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  & .nav-list-bedroom::before {
+    content: "";
+    width: 23px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 10;
+    background: url(../../public/images/icons/bedroom-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  & .nav-list-livingRoom::before {
+    content: "";
+    width: 23px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 10;
+
+    background: url(../../public/images/icons/livingroom-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  & .nav-list-hallway::before {
+    content: "";
+    width: 23px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 10;
+    background: url(../../public/images/icons/office-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  & .nav-list-office::before {
+    content: "";
+    width: 23px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 10;
+    background: url(../../public/images/icons/office-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  & .nav-list-childrensRoom::before {
+    content: "";
+    width: 23px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 10;
+    background: url(../../public/images/icons/childrensroom-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  & .nav-list-sale::before {
+    content: "";
+    width: 22px;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 10;
+    background: url(../../public/images/icons/Vector.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  & .nav-list-new::before {
+    content: "";
+    width: 23px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 10;
+    background: url(../../public/images/icons/new.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@media (max-width: 762px) {
+  .header {
+    & .nav {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      &::after {
+        content: url(../../public/images/icons/etc.svg);
+        position: absolute;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 3.5rem !important;
+        right: 0;
+        top: 0;
+        text-align: center;
+        justify-content: center;
+        width: 2rem;
+        z-index: 30;
+        padding: -1rem;
+        background-color: white;
+      }
+    
+    }
+  }
+  .footer{
+& .bottom-line{flex-direction: column;}
+}
+}
+

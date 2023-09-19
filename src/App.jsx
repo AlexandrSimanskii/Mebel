@@ -8,10 +8,6 @@ import Catalog from "./Pages/Catalog/Catalog";
 import Checkout from "./Pages/Checkout/Checkout";
 import PersonRoom from "./Pages/PersonRoom/PersonRoom";
 import CardProduct from "./Pages/CardProduct/CardProduct";
-
-
-
-
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 
