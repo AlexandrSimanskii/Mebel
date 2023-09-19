@@ -60,7 +60,7 @@ const Catalog = () => {
     products.length && getMinMaxPrice(products);
   }, [products]);
 
-
+console.log(category);
 
   return (
     <main>

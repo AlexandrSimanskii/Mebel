@@ -1,6 +1,6 @@
 import { Fragment, useContext } from "react";
 import { CustomContext } from "../../utils/Context/Context";
-import axios from "../../utils/Axios/axios";
+
 
 const Cart = () => {
   const { addCardsCountPlus, addCardsCountMinus, user, navigate, setUser } =
