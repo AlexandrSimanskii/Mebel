@@ -71,7 +71,7 @@ const Header = () => {
           </button>
           <Link to={"/"}>
          
-              <img src="../../../public/images/image/LOGO.svg" alt="logo" />
+              <img className="header__main_logo" src="../../../public/images/image/LOGO.svg" alt="logo" />
           
           </Link>
           <div className="header-search">

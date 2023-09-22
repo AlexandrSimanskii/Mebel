@@ -12,106 +12,89 @@ const Banner = () => {
 
   const navigate = useNavigate();
 
-const toCotalog=()=>{ navigate("/catalog");
-setCategory("")}
-
+  const toCotalog = () => {
+    navigate("/catalog");
+    setCategory("");
+  };
 
   return (
-    <section className="banner"  onClick={() => {
-      toCotalog()
-     }}>
+    <section className="banner">
       <div className="container">
-        <Swiper
-          loop={true}
-          // autoplay={{ delay: 3000 }}
-          speed={1500}
-          navigation={true}
-          pagination={{ clickable: true }}
-          modules={[Navigation, Autoplay, Pagination]}
-          className="mySwiper"
-       
-        >
-          
-          <SwiperSlide
-           
-          >
-            <div className="banner__info">
-              <h2 className="banner__title">
-                loft <br />
-                мебель
-              </h2>
-              <p className="banner__text">
-                Современная и удобная мебель в Анапе
-              </p>
-              <button className="banner__btn">СМОТРЕТЬ КАТАЛОГ</button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide
-            onClick={() => {
-              navigate("/catalog");
+        <div className="banner__inner">
+          <Swiper
+            loop={true}
+            // autoplay={{ delay: 3000 }}
+            speed={1500}
+            navigation={{
+              nextEl: ".myslider-next",
+              prevEl: ".myslider-prev",
             }}
+            pagination={{ clickable: true }}
+            modules={[Navigation, Autoplay, Pagination]}
+            className="mySwiper"
           >
-            <div className="banner__info">
-              <h2 className="banner__title">
-                loft <br />
-                мебель
-              </h2>
-              <p className="banner__text">
-                Современная и удобная мебель в Анапе
-              </p>
-              <button className="banner__btn">СМОТРЕТЬ КАТАЛОГ</button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide onClick={() => navigate("/catalog")}>
-            <div className="banner__info">
-              <h2 className="banner__title">
-                loft <br />
-                мебель
-              </h2>
-              <p className="banner__text">
-                Современная и удобная мебель в Анапе
-              </p>
-              <button className="banner__btn">СМОТРЕТЬ КАТАЛОГ</button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide onClick={() => navigate("/catalog")}>
-            <div className="banner__info">
-              <h2 className="banner__title">
-                loft <br />
-                мебель
-              </h2>
-              <p className="banner__text">
-                Современная и удобная мебель в Анапе
-              </p>
-              <button className="banner__btn">СМОТРЕТЬ КАТАЛОГ</button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide onClick={() => navigate("/catalog")}>
-            <div className="banner__info">
-              <h2 className="banner__title">
-                loft <br />
-                мебель
-              </h2>
-              <p className="banner__text">
-                Современная и удобная мебель в Анапе
-              </p>
-              <button className="banner__btn">СМОТРЕТЬ КАТАЛОГ</button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide onClick={() => navigate("/catalog")}>
-            <div className="banner__info">
-              <h2 className="banner__title">
-                loft <br />
-                мебель
-              </h2>
-              <p className="banner__text">
-                Современная и удобная мебель в Анапе
-              </p>
+            <SwiperSlide>
+              <img src="../../../public/images/image/Main-Img.png" alt="" />
+            </SwiperSlide>
+            <SwiperSlide
+              onClick={() => {
+                navigate("/catalog");
+              }}
+            >
+              <img src="../../../public/images/image/slider.png" alt="" />
+            </SwiperSlide>
+            <SwiperSlide onClick={() => navigate("/catalog")}>
+              <img src="../../../public/images/image/Main-Img.png" alt="" />
+              <div className="banner__info">
+                <h2 className="banner__title">
+                  loft <br />
+                  мебель
+                </h2>
+                <p className="banner__text">
+                  Современная и удобная мебель в Анапе
+                </p>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide onClick={() => navigate("/catalog")}>
+              <img src="../../../public/images/image/slider.png" alt="" />
+            </SwiperSlide>
+            <SwiperSlide onClick={() => navigate("/catalog")}>
+              <img src="../../../public/images/image/Main-Img.png" alt="" />
+            </SwiperSlide>
+            <SwiperSlide onClick={() => navigate("/catalog")}>
+              <img src="../../../public/images/image/slider.png" alt="" />
+            </SwiperSlide>
+          </Swiper>
 
-              <button className="banner__btn">СМОТРЕТЬ КАТАЛОГ</button>
-            </div>
-          </SwiperSlide>
-        </Swiper>
+          <div className="myslider__btns">
+            <button className="myslider-prev">
+              <img src="../../public/images/icons/Tick2.svg" alt="arrow" />
+            </button>
+            <button className="myslider-next">
+              <img src="../../../public/images/icons/Tick2.svg" alt="arrow" />
+            </button>
+          </div>
+          <div className="banner__info">
+            <h2 className="banner_title">
+              loft <br />
+              мебель
+            </h2>
+            <p className="banner_text">
+              Современная и удобная мебель <span>в Анапе</span>
+            </p>
+            <button
+              onClick={() => {
+                toCotalog();
+              }}
+              className="banner_btn"
+            >
+              СМОТРЕТЬ КАТАЛОГ
+            </button>
+          </div>
+        </div>
+        <div className="banner-mini">
+          <img src="../../../public/images/image/banner375.png" alt="" />
+        </div>
       </div>
     </section>
   );
