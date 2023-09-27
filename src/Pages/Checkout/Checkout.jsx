@@ -8,20 +8,18 @@ const Checkout = () => {
   const [payCash, setPayCash] = useState(false);
   const [popupTimer, setPopupTimer] = useState(10);
   const [popup, setPopup] = useState(false);
-  
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
- 
-
   const submitForm = (data) => {
     let order = {
       ...data,
       order: user.carts,
-      
+
       totalPrice: user.carts?.reduce((acc, el) => acc + el.price * el.count, 0),
     };
     addOrders(order, setPopup, redirect);
@@ -98,8 +96,8 @@ const Checkout = () => {
                 <tbody>
                   <tr>
                     <td>Товар</td>
-                    <td></td>
-                    <td>Количество Всего</td>
+                    <td>Кол-во</td>
+                    <td> Всего</td>
                   </tr>
 
                   {user.carts?.map((item) => {

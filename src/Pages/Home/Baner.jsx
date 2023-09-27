@@ -45,15 +45,7 @@ const Banner = () => {
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
               <img src="../../../public/images/image/Main-Img.png" alt="" />
-              <div className="banner__info">
-                <h2 className="banner__title">
-                  loft <br />
-                  мебель
-                </h2>
-                <p className="banner__text">
-                  Современная и удобная мебель в Анапе
-                </p>
-              </div>
+            
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
               <img src="../../../public/images/image/slider.png" alt="" />
@@ -82,6 +74,9 @@ const Banner = () => {
             <p className="banner_text">
               Современная и удобная мебель <span>в Анапе</span>
             </p>
+            <p className="banner_text-mini">
+          С бесплатной доставкой по Калининграду
+            </p>
             <button
               onClick={() => {
                 toCotalog();
@@ -92,9 +87,7 @@ const Banner = () => {
             </button>
           </div>
         </div>
-        <div className="banner-mini">
-          <img src="../../../public/images/image/banner375.png" alt="" />
-        </div>
+      
       </div>
     </section>
   );

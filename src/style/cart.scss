@@ -109,3 +109,10 @@
     }
   }
 }
+@media(max-width:650px){.cart{
+  &__card{
+    flex-direction: column;
+    align-items: center;
+    
+  }
+}}

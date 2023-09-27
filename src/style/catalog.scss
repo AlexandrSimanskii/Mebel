@@ -42,18 +42,15 @@
     position: relative;
     text-align: center;
     width: 100%;
+    padding-bottom: 10rem;
 
     &_inner {
-      height: 120vh;
       width: 100%;
       display: flex;
       column-gap: 3rem;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin-bottom: 5rem;
-      & .card {
-        width: calc(33% - 2rem);
-      }
+      margin-bottom: 0rem;
     }
 
     &_btns {
@@ -99,5 +96,17 @@
         padding: 0 1rem;
       }
     }
+  }
+}
+@media (max-width: 1050px) {
+  .catalog {
+    &__content_inner {
+      justify-content: space-evenly;
+    }
+  }
+}
+@media (max-width: 550px) {
+  .catalog__aside {
+    display: none;
   }
 }

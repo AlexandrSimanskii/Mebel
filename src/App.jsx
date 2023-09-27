@@ -10,10 +10,6 @@ import PersonRoom from "./Pages/PersonRoom/PersonRoom";
 import CardProduct from "./Pages/CardProduct/CardProduct";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
-
-
-
-
 import Favorites from "./Pages/Favorites/Favorites";
 import Cart from "./Pages/Cart/Cart";
 function App() {

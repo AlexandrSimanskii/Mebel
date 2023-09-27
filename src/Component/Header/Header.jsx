@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CustomContext } from "../../utils/Context/Context";
 import NavList from "../NavList/NavList";
@@ -16,13 +16,29 @@ const Header = () => {
     setPages,
   } = useContext(CustomContext);
 
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const menuBtnRef = useRef(null);
+
   useEffect(() => {
     location.pathname !== "/catalog" && setSearch("");
   }, [location.pathname]);
 
+  document.addEventListener("click", (e) => {
+    if (e.target !== menuRef.current && e.target !== menuBtnRef.current) {
+      setIsOpen(false);
+    }
+  });
+
   return (
     <div className="header">
-      <div className="header__top">
+      <div
+        className={`header__top ${isOpen && "header__top-visible"}`}
+        ref={menuRef}
+        onClick={() => {
+          setIsOpen((prev) => !prev);
+        }}
+      >
         <div className="container">
           <div className="header__top-wrapper">
             <div className="header__top-left">
@@ -67,12 +83,19 @@ const Header = () => {
       <div className="container">
         <div className="header__main">
           <button className="header__main-btn">
-            <img src="../../../public/images/icons/menu-icon.svg" alt="menu" />
+            <img
+              onClick={() => setIsOpen(true)}
+              ref={menuBtnRef}
+              src="../../../public/images/icons/menu-icon.svg"
+              alt="menu"
+            />
           </button>
           <Link to={"/"}>
-         
-              <img className="header__main_logo" src="../../../public/images/image/LOGO.svg" alt="logo" />
-          
+            <img
+              className="header__main_logo"
+              src="../../../public/images/image/LOGO.svg"
+              alt="logo"
+            />
           </Link>
           <div className="header-search">
             <input
@@ -105,6 +128,7 @@ const Header = () => {
             <div
               className={`menu-img ${location.pathname == "/cart" && "active"}`}
             >
+              
               <Link to={user.email?.length ? "/cart" : "/login"}>
                 <img src="../../../public/images/icons/bag.svg" alt="bag" />
               </Link>
@@ -118,9 +142,8 @@ const Header = () => {
             </div>
           </div>
         </div>
-      
-          <NavList />
-        
+
+        <NavList />
       </div>
     </div>
   );

@@ -45,7 +45,7 @@ const PersonRoom = () => {
           </ul>
           <div className="room__bottom">
           
-{user.orders.length && <table>
+{user.orders?.length && <table>
               <caption>Купленные товары</caption>
               <thead>
                 <tr>

@@ -58,7 +58,7 @@ const Catalog = () => {
     products.length && getMinMaxPrice(products);
   }, [products]);
 
-  console.log(666);
+
 
   return (
     <main>

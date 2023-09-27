@@ -51,8 +51,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      height: 15rem;
+      max-width: 100%;
+      // height: 15rem;
       margin-bottom: 5.3rem;
     }
     &-title {
@@ -183,10 +183,41 @@
 .css-sghohy-MuiButtonBase-root-MuiButton-root {
   background-color: var(--button-color) !important;
 }
+@media (max-width: 1050px) {
+  .cards__wrapper {
+    justify-content: space-evenly;
+  }
+}
 @media (max-width: 800px) {
   .cards {
     &__wrapper {
       justify-content: space-around;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .cards__wrapper {
+    column-gap: 2rem;
+    justify-content: space-evenly;
+  }
+  .card {
+    max-width: 40%;
+    & .main {
+      &-img {
+        width: 100%;
+        margin-bottom: 2rem;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .card {
+    & .main-title {
+      font-size: 1.2rem;
     }
   }
 }

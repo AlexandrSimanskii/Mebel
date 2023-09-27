@@ -38,9 +38,9 @@
     line-height: 140.8%;
     letter-spacing: 0.02286rem;
     margin-bottom: 1.8rem;
-  }
-  &-mini {
-    display: none;
+    &-mini {
+      display: none;
+    }
   }
 }
 .myslider__btns {
@@ -83,6 +83,7 @@
     z-index: 0;
   }
 }
+
 @media (max-width: 800px) {
   .banner {
     & .myslider__btns {
@@ -111,7 +112,9 @@
         line-height: 28px;
         letter-spacing: 0em;
         color: #ffffff;
-
+        &-mini{
+          display: block;
+        }
         span {
           display: none;
         }
@@ -121,18 +124,34 @@
 }
 @media (max-width: 550px) {
   .banner {
+    &__info {
+      width: 50%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: #f4f4f4;
+      padding: 3rem 1.5rem;
+      button {
+        display: none;
+      }
+      & p.banner_text {
+        color: #414141;
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 102.8%;
+        margin-bottom: 0.5rem;
+     
+      }
+    }
     .swiper {
       height: 12.6rem;
-    }
-    &__inner {
-      display: none;
-    }
-    &-mini {
-      display: block;
-      height: 2rem;
-      img {
-        height: 100%;
+      &-pagination {
+        display: none;
       }
+    }
+
+    & .myslider__btns {
+      display: none;
     }
   }
 }
