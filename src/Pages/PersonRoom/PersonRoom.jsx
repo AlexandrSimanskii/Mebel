@@ -25,7 +25,7 @@ const PersonRoom = () => {
         <div className="room__inner">
           <ul className="room__bonus">
             <h4>Бонусная программа</h4>
-            <li className="room__bonus_list">
+            <li className="room__bonus-list">
               <p>
                 У вас {""}
                { user.id?orders && Math.round((orders.reduce((acc,el)=>acc+el.price,0))/100*3):0}
@@ -34,12 +34,12 @@ const PersonRoom = () => {
               <a>Правила бонусной программы</a>
             </li>
           </ul>
-          <ul className="program__conditions">
-            <li className="program__conditions_cashback">
+          <ul className="program-conditions">
+            <li className="program-conditions__cashback">
               Возвращаем до 7% на бонусный счет
             </li>
-            <li className="program__conditions_rub">1 бонус = 1 рубль</li>
-            <li className="program__conditions_present">
+            <li className="program-conditions__rub">1 бонус = 1 рубль</li>
+            <li className="program-conditions__present">
               Оплачивайте бонусами до 20% от покупки
             </li>
           </ul>

@@ -15,10 +15,8 @@ import Cart from "./Pages/Cart/Cart";
 function App() {
   return (
     <>
-
       <Routes>
-        <Route path="/" element={<Loyout />}>s
-          <Route path="" element={<Home />} />
+        <Route path="/" element={<Loyout />}>
           <Route path="/about" element={<About />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/Cart" element={<Cart />} />
@@ -27,6 +25,7 @@ function App() {
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/product/:id" element={<CardProduct />} />
           <Route path="/room" element={<PersonRoom />} />
+          <Route path="" element={<Home />} />
         </Route>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

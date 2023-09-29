@@ -15,7 +15,7 @@
     flex-basis: 30rem;
     height: 10rem;
     flex-wrap: wrap;
-    img {
+    &__img {
       display: none;
     }
     li{cursor: pointer;}

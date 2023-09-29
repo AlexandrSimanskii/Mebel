@@ -1,10 +1,9 @@
-// import "swiper/scss/navigation";
-// import "swiper/css/pagination";
+
 
 import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -13,13 +12,6 @@ import "swiper/css/thumbs";
 
 const ProductSlider = ({product}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
-
-
-
-
-
-
 
   return (
     <div className="product__slider">

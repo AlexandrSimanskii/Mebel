@@ -78,11 +78,16 @@ button {
       linear-gradient(180deg, #245462 0%, #083f50 100%);
   }
 }
+@media (max-width: 500px) {
+  html {
+    font-size: 8px;
+  }
+}
 
 @import "header";
 @import "footer";
 @import "home";
-@import "swiper";
+
 @import "card";
 @import "cart";
 @import "form";

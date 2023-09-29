@@ -58,18 +58,14 @@ const Catalog = () => {
     products.length && getMinMaxPrice(products);
   }, [products]);
 
-
-
   return (
     <main>
       <div className="catalog">
         <div className="container">
+          <button className="catalog__open-filter">Фильтр</button>
           <div className="catalog__inner">
             <AsideFilter
               slider={slider}
-            
-            
-            
               setSlider={setSlider}
               category={category}
               setCategory={setCategory}
@@ -79,9 +75,6 @@ const Catalog = () => {
             />
             <div className="catalog__content">
               <div className="catalog__content_inner">
-                
-                
-                
                 {products.map((item) => {
                   return (
                     <Fragment key={item.id}>
@@ -90,24 +83,27 @@ const Catalog = () => {
                   );
                 })}
               </div>
-{countPages===1?"":    <div className="catalog__content_btns">
-                <button
-                  onClick={() => {
-                    pages > 1 ? setPages((prev) => prev - 1) : null;
-                  }}
-                >
-                  -
-                </button>
-                <p>{pages}</p>
-                <button
-                  onClick={() => {
-                    setPages((prev) => (countPages > prev ? prev + 1 : prev));
-                  }}
-                >
-                  +
-                </button>
-              </div>}
-          
+              {countPages === 1 ? (
+                ""
+              ) : (
+                <div className="catalog__content_btns">
+                  <button
+                    onClick={() => {
+                      pages > 1 ? setPages((prev) => prev - 1) : null;
+                    }}
+                  >
+                    Прев.
+                  </button>
+                  <p>{pages}</p>
+                  <button
+                    onClick={() => {
+                      setPages((prev) => (countPages > prev ? prev + 1 : prev));
+                    }}
+                  >
+                    След.
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

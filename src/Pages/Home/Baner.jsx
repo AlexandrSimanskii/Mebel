@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, Pagination } from "swiper";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -8,6 +8,8 @@ import { CustomContext } from "../../utils/Context/Context";
 import { Fragment, useContext } from "react";
 
 const Banner = () => {
+ 
+
   const { setCategory } = useContext(CustomContext);
 
   const navigate = useNavigate();
@@ -21,7 +23,11 @@ const Banner = () => {
     <section className="banner">
       <div className="container">
         <div className="banner__inner">
-          <Swiper
+    
+    
+
+
+           <Swiper
             loop={true}
             // autoplay={{ delay: 3000 }}
             speed={1500}
@@ -33,6 +39,7 @@ const Banner = () => {
             modules={[Navigation, Autoplay, Pagination]}
             className="mySwiper"
           >
+            
             <SwiperSlide>
               <img src="../../../public/images/image/Main-Img.png" alt="" />
             </SwiperSlide>
@@ -45,7 +52,6 @@ const Banner = () => {
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
               <img src="../../../public/images/image/Main-Img.png" alt="" />
-            
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
               <img src="../../../public/images/image/slider.png" alt="" />
@@ -56,7 +62,7 @@ const Banner = () => {
             <SwiperSlide onClick={() => navigate("/catalog")}>
               <img src="../../../public/images/image/slider.png" alt="" />
             </SwiperSlide>
-          </Swiper>
+          </Swiper> 
 
           <div className="myslider__btns">
             <button className="myslider-prev">
@@ -75,7 +81,7 @@ const Banner = () => {
               Современная и удобная мебель <span>в Анапе</span>
             </p>
             <p className="banner_text-mini">
-          С бесплатной доставкой по Калининграду
+              С бесплатной доставкой по Калининграду
             </p>
             <button
               onClick={() => {
@@ -87,7 +93,6 @@ const Banner = () => {
             </button>
           </div>
         </div>
-      
       </div>
     </section>
   );

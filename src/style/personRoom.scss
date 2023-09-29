@@ -6,39 +6,12 @@
     margin-bottom: 3rem;
     display: flex;
     justify-content: space-between;
-    &_list {
+    &-list {
       display: flex;
       column-gap: 2rem;
     }
   }
-  & .program__conditions {
-    padding: 1.6rem;
-    background-color: #f8f8f8;
-    display: flex;
-    justify-content: center;
-    column-gap: 5.8rem;
-    margin-bottom: 4.2rem;
-    li {
-      display: flex;
-      align-items: center;
-      column-gap: 1.6rem;
-    }
-    &_cashback {
-      &::before {
-        content: url(../../public/images/icons/cashback.svg);
-      }
-    }
-    &_rub {
-      &::before {
-        content: url(../../public/images/icons/Rub.svg);
-      }
-    }
-    &_present {
-      &::before {
-        content: url(../../public/images/icons/present.svg);
-      }
-    }
-  }
+
   &__bottom {
     input {
       padding: 0.5rem;
@@ -86,11 +59,10 @@
       }
     }
     table {
-    
       overflow-y: scroll;
       display: block;
       max-height: 100vh;
-      
+
       caption {
         text-align: left;
         margin-bottom: 2rem;
@@ -112,6 +84,57 @@
     width: 50%;
     img {
       width: 100%;
+    }
+  }
+}
+.program-conditions {
+  padding: 1.6rem;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  column-gap: 5.8rem;
+  margin-bottom: 4.2rem;
+  li {
+    display: flex;
+    align-items: center;
+    column-gap: 1.6rem;
+  }
+  &__cashback {
+    &::before {
+      content: url(../../public/images/icons/cashback.svg);
+    }
+  }
+  &__rub {
+    &::before {
+      content: url(../../public/images/icons/Rub.svg);
+    }
+  }
+  &__present {
+    &::before {
+      content: url(../../public/images/icons/present.svg);
+    }
+  }
+}
+@media (max-width: 950px) {
+  .program-conditions {
+    column-gap: 2rem;
+    justify-content: space-between;
+  }
+  .room__bonus {
+    column-gap: 1rem;
+    &-list {
+      column-gap: 1rem;
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .program-conditions {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+    & li:nth-child(2n) {
+      background: lighten (#f8f8f8, 90%);
     }
   }
 }
