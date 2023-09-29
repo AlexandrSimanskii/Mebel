@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { CustomContext } from "../../utils/Context/Context";
-import { useForm } from "react-hook-form";
+
 
 const ProductInfo = ({ product }) => {
   const {
