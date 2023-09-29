@@ -24,19 +24,15 @@ const CardProduct = () => {
     fetchProduct();
   }, [params.id]);
 
-
   if ("id" in product) {
     return (
       <>
         <div className="cardProduct">
           <div className="container">
             <div className="cardProduct__inner">
-              <div className="cardProduct__purches">
-                <ProductSlider product={product} />
+              <ProductSlider product={product} />
 
-                <ProductInfo product={product} />
-              </div>
-              <div className="cardProduct__info"></div>
+              <ProductInfo product={product} />
             </div>
           </div>
         </div>
@@ -44,7 +40,8 @@ const CardProduct = () => {
       </>
     );
   } else {
-  return <h2>loading</h2>}
+    return <h2>loading</h2>;
+  }
 };
 
 export default CardProduct;

@@ -17,10 +17,11 @@ const ProductSlider = ({product}) => {
     <div className="product__slider">
       <Swiper
         loop={true}
+        // navigation={true}
         spaceBetween={10}
         navigation={false}
         thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Thumbs]}
+        modules={[FreeMode, Navigation,Thumbs]}
         className="mySwiper2"
       >
         <SwiperSlide>
@@ -41,18 +42,18 @@ const ProductSlider = ({product}) => {
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
+        // style={{
+        //   "--swiper-navigation-color": "#fff",
+        //   "--swiper-pagination-color": "#fff",
+        // }}
         loop={true}
-        spaceBetween={15}
-        slidesPerView={4}
+        spaceBetween={10}
+        slidesPerView="auto"
         navigation={true}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
+        className="mySwiper-product"
       >
         <SwiperSlide>
           <div className="a">
