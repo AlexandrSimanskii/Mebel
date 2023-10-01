@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { CustomContext } from "../../utils/Context/Context";
 import { useLocation } from "react-router-dom";
 
@@ -7,7 +7,7 @@ const NavList = () => {
     useContext(CustomContext);
 
   const [listOpen, setListOpen] = useState(false);
-
+  const listRef = useRef(null);
   const { pathname } = useLocation();
 
   const getCategory = (event) => {
@@ -19,6 +19,13 @@ const NavList = () => {
       setActiveItem(newCategory);
     }
   };
+
+  window.addEventListener("click", (e) => {
+  
+    if (listOpen && e.target !== listRef.current) {
+      setListOpen(false);
+    }
+  });
 
   return (
     <div className="nav">
@@ -78,29 +85,28 @@ const NavList = () => {
         >
           Акция
         </li>
-        <button
-          type="button"
-          onClick={() => {
-            setListOpen((prev) => !prev);
-          }}
-          className="nav-list__img"
-        >
-         
-          {listOpen ? (
-            <img
-              className="img-open"
-              width={20}
-              src="../../../public/images/icons/closed.svg"
-              alt=""
-            />
-          ) : (
-            <img
-              className="img-closed"
-              src="../../../public/images/icons/etc.svg"
-              alt=""
-            />
-          )}
-        </button>
+
+        {listOpen ? (
+          <button
+            className="nav-list__btn list-closed"
+            type="button"
+            onClick={() => {
+              setListOpen((prev) => !prev);
+            }}
+            ref={listRef}
+          ></button>
+        ) : (
+          <button
+            className="nav-list__btn list-open"
+            type="button"
+            onClick={() => {
+              setListOpen((prev) => !prev);
+            }}
+            ref={listRef}
+          ></button>
+        )}
+
+    
         <span></span>
       </ul>
     </div>

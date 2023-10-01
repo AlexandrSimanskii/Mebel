@@ -12,14 +12,44 @@
       height: 100%;
       position: absolute;
       background-color: #fff;
-    
+
       top: 0;
       left: 0;
       animation: listAnimate 2s ease-in-out forwards;
     }
-    &__img {
+    &__btn {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      z-index: 10;
+      right: 0;
+      top: 0;
+      width: 4rem;
+      height: 100%;
+      background: #fff;
       display: none;
+      &.list-open::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background: url(../../public/images/icons/etc.svg);
+        background-repeat: no-repeat;
+      }
+      &.list-closed::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        
+        top: 1rem;
+        background: url(../../public/images/icons/closed.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
+
     li.active {
       color: var(--color-active);
     }
@@ -159,6 +189,19 @@
       background-size: contain;
     }
   }
+  // & .list-open{
+  //   &::before{
+  //     content:"";
+  //     position:absolute;
+  //     top: 0;
+
+  //     background:  url(../../public/images/icons/open.svg);
+  //     width: 20px;
+  //     height: 20px;
+  //     background-size: cover;
+  // }
+
+  // }
 }
 
 @keyframes listAnimate {
@@ -174,16 +217,17 @@
   .header {
     & .nav-list {
       position: relative;
-      &__img {
-        display: block;
+      &__btn {
+        display: flex;
+        align-items: center;
         position: absolute;
         z-index: 10;
         right: 0;
-        top: 50%;
+        top: 0;
         width: 4rem;
         height: 100%;
         background: #fff;
-        transform: translateY(-50%);
+        // transform: translateY(100%);
         color: #313131;
       }
       &-active {

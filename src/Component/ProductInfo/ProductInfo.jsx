@@ -20,7 +20,7 @@ const ProductInfo = ({ product }) => {
   // const onSubmit = (data) => console.log(data);
 
 
-useEffect(()=>{setBtnPayVisible(!user.carts.some((item) => item.id === product.id))},[])
+useEffect(()=>{setBtnPayVisible(!user.carts?.some((item) => item.id === product.id))},[])
   
 
   return (
@@ -38,7 +38,7 @@ useEffect(()=>{setBtnPayVisible(!user.carts.some((item) => item.id === product.i
               setSelectedPSC(1)
             }}
           >
-            Купить
+            В корзину
           </button>
         ) : (
           <div className="chengePSC">

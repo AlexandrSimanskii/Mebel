@@ -18,15 +18,14 @@
   }
 
   &__aside {
+    
     display: flex;
     row-gap: 20px;
-
     flex-direction: column;
     position: sticky;
-
     top: 10px;
-
     max-width: 26rem;
+    width: 100%;
 
     width: 100%;
     height: fit-content;
@@ -116,7 +115,7 @@
     }
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 700px) {
 .catalog{
   &__open-filter{display: block;}
 }
@@ -124,10 +123,14 @@
   .catalog__aside {
     position: absolute;
     left: 50%;
+    top: 0;
+    max-width: 100%;
     transform: translateX(-50%);
     z-index: 20;
     background: #FFF;
-  //  padding: 0 20rem;
-    // display: none;
+  
+    &-unvisible{
+      display: none;
+    }
   }
 }

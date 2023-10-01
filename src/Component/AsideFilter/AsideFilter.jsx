@@ -2,12 +2,9 @@ import SelectFilter from "../SelectFilter/SelectFilter";
 
 import RangeInput from "./RangeInput.jsx";
 import { Button } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { CustomContext } from "../../utils/Context/Context";
 import axios from "../../utils/Axios/axios";
-
-
-// const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const AsideFilter = ({
   sort,
@@ -15,19 +12,21 @@ const AsideFilter = ({
   category,
   setCategory,
   slider,
-  setSlider, setProducts,pages
+  setSlider,
+  setProducts,
+  pages,
+  filterBtn,
+  setFilterVisible,
+  filterVisible,
 }) => {
-
-
-  const { search,  } = useContext(CustomContext);
-
-
+  const { search } = useContext(CustomContext);
+const asideFilterRef=useRef(null)
   const resetFilter = () => {
     setSort("");
     setCategory("");
     setSlider([0, 0]);
   };
-  
+
   //  Получаем отфильтрованные продукты
   const getFilterCategory = () => {
     let qweryParamsApi = `${search.length ? `title_like=${search}&` : ""}${
@@ -47,8 +46,18 @@ const AsideFilter = ({
     });
   };
 
+  
+
   return (
-    <aside className="catalog__aside">
+    <aside
+      className={`catalog__aside ${
+        !filterVisible && "catalog__aside-unvisible"
+      }`}
+      ref={asideFilterRef}
+      onClick={(e) => {
+     (e.currentTarget!==asideFilterRef.current)&& setFilterVisible(false)
+      }}
+    >
       <div className="catalog__aside-content">
         <h2 className="catalog__aside-title">Раздел</h2>
         <SelectFilter
@@ -62,7 +71,6 @@ const AsideFilter = ({
             "Прихожие",
             "Офисная мебель",
             "Детские",
-           
           ]}
         />
         <SelectFilter
@@ -84,7 +92,14 @@ const AsideFilter = ({
         <Button variant="contained" onClick={resetFilter}>
           Сбросить
         </Button>
-        <Button variant="contained" onClick={getFilterCategory}>
+        <Button
+          ref={filterBtn}
+          variant="contained"
+          onClick={() => {
+            getFilterCategory();
+            setFilterVisible(false);
+          }}
+        >
           Отфильтровать
         </Button>
       </div>

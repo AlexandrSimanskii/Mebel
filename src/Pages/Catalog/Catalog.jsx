@@ -1,4 +1,4 @@
-import { Fragment, useState, useContext, useEffect } from "react";
+import { Fragment, useState, useContext, useEffect, useRef } from "react";
 import AsideFilter from "../../Component/AsideFilter/AsideFilter";
 import { CustomContext } from "../../utils/Context/Context";
 import axios from "../../utils/Axios/axios";
@@ -17,6 +17,8 @@ const Catalog = () => {
   const [countPages, setCountPages] = useState(0);
   const [sort, setSort] = useState("");
   const [slider, setSlider] = useState([0, 300000]);
+  const [filterVisible, setFilterVisible] = useState(false);
+  const filterBtn = useRef(null);
 
   const getMinMaxPrice = (prod) => {
     let allPrices = [];
@@ -58,11 +60,19 @@ const Catalog = () => {
     products.length && getMinMaxPrice(products);
   }, [products]);
 
+  window.addEventListener("click", (e) => {
+    console.log();
+  });
   return (
     <main>
       <div className="catalog">
         <div className="container">
-          <button className="catalog__open-filter">Фильтр</button>
+          <button
+            className="catalog__open-filter"
+            onClick={() => setFilterVisible(true)}
+          >
+            Фильтр
+          </button>
           <div className="catalog__inner">
             <AsideFilter
               slider={slider}
@@ -72,7 +82,11 @@ const Catalog = () => {
               sort={sort}
               setSort={setSort}
               setProducts={setProducts}
+              filterBtn={filterBtn}
+              setFilterVisible={setFilterVisible}
+              filterVisible={filterVisible}
             />
+
             <div className="catalog__content">
               <div className="catalog__content_inner">
                 {products.map((item) => {
