@@ -69,9 +69,9 @@ const Catalog = () => {
         <div className="container">
           <button
             className="catalog__open-filter"
-            onClick={() => setFilterVisible(true)}
+            onClick={() =>{setFilterVisible((prev)=>!prev)} }
           >
-            Фильтр
+            {filterVisible?"Закрыть":"Фильтр"}
           </button>
           <div className="catalog__inner">
             <AsideFilter
