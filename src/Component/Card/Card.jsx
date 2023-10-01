@@ -59,15 +59,15 @@ const Card = ({ item }) => {
         <h3 className="bottom-title">Размеры</h3>
 
         <dl className="bottom-table">
-          <div>
+          <div className="bottom-table__item">
             <dt>Ширина</dt>
             <dd>{item.width} cm</dd>
           </div>
-          <div>
+          <div className="bottom-table__item">
             <dt>Глубина</dt>
             <dd>{item.deep} cm</dd>
           </div>
-          <div>
+          <div className="bottom-table__item">
             <dt>Высота</dt>
             <dd>{item.height} cm</dd>
           </div>

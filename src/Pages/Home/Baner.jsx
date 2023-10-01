@@ -8,8 +8,6 @@ import { CustomContext } from "../../utils/Context/Context";
 import { Fragment, useContext } from "react";
 
 const Banner = () => {
- 
-
   const { setCategory } = useContext(CustomContext);
 
   const navigate = useNavigate();
@@ -23,11 +21,7 @@ const Banner = () => {
     <section className="banner">
       <div className="container">
         <div className="banner__inner">
-    
-    
-
-
-           <Swiper
+          <Swiper
             loop={true}
             // autoplay={{ delay: 3000 }}
             speed={1500}
@@ -39,30 +33,47 @@ const Banner = () => {
             modules={[Navigation, Autoplay, Pagination]}
             className="mySwiper"
           >
-            
             <SwiperSlide>
-              <img src="../../../public/images/image/Main-Img.png" alt="" />
+              <img src="../../../public/images/image/Main-Img.jpg" alt="" />
             </SwiperSlide>
             <SwiperSlide
               onClick={() => {
                 navigate("/catalog");
               }}
             >
-              <img src="../../../public/images/image/slider.png" alt="" />
+              <picture>
+                <source
+                  srcSet="../../../public/images/image/slider.webp"
+                  type="image/webp"
+                />
+                <img src="../../../public/images/image/slider.jpg" alt="" />
+              </picture>
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
-              <img src="../../../public/images/image/Main-Img.png" alt="" />
+              <img src="../../../public/images/image/Main-Img.jpg" alt="" />
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
-              <img src="../../../public/images/image/slider.png" alt="" />
+              <picture>
+                <source
+                  srcSet="../../../public/images/image/slider.webp"
+                  type="image/webp"
+                />
+                <img src="../../../public/images/image/slider.jpg" alt="" />
+              </picture>
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
-              <img src="../../../public/images/image/Main-Img.png" alt="" />
+              <img src="../../../public/images/image/Main-Img.jpg" alt="" />
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
-              <img src="../../../public/images/image/slider.png" alt="" />
+              <picture>
+                <source
+                  srcSet="../../../public/images/image/slider.webp"
+                  type="image/webp"
+                />
+                <img src="../../../public/images/image/slider.jpg" alt="" />
+              </picture>
             </SwiperSlide>
-          </Swiper> 
+          </Swiper>
 
           <div className="myslider__btns">
             <button className="myslider-prev">
