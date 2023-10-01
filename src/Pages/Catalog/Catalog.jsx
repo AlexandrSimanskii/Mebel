@@ -60,9 +60,8 @@ const Catalog = () => {
     products.length && getMinMaxPrice(products);
   }, [products]);
 
-  window.addEventListener("click", (e) => {
-    console.log();
-  });
+ 
+  
   return (
     <main>
       <div className="catalog">
