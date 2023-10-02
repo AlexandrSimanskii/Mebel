@@ -169,7 +169,7 @@ const Form = () => {
                 onClick={() => {
                   setVisiblePassword((prev) => !prev);
                 }}
-                src={`../../../public/images/icons/${
+                src={`/images/icons/${
                   visiblePassword ? "eyeInvisible" : "eye"
                 }.png`}
                 alt="eye"
@@ -196,7 +196,7 @@ const Form = () => {
                   onClick={() => {
                     setVisiblePwd((prev) => !prev);
                   }}
-                  src={`../../../public/images/icons/${
+                  src={`/images/icons/${
                     visiblePwd ? "eyeInvisible" : "eye"
                   }.png`}
                   alt="eye"
