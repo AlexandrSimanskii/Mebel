@@ -86,7 +86,7 @@ const PersonRoom = () => {
           </div>
           {pop ? (
             <div className="popup">
-              <img src="../../../public/images/image/bonus.jpg" alt="" />
+              <img src="/images/image/bonus.jpg" alt="" />
             </div>
           ) : (
             ""

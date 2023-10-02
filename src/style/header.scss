@@ -87,7 +87,7 @@
         top: 50%;
         left: 20px;
         transform: translateY(-50%);
-        background: url(../../public/images/icons/search-icon.svg);
+        background: url(/images/icons/search-icon.svg);
         z-index: 2;
       }
       & .closed {
@@ -100,7 +100,7 @@
           right: 20px;
           transform: translateY(-50%);
 
-          background: url(../../public/images/icons/closed.svg);
+          background: url(/images/icons/closed.svg);
           background-size: cover;
           z-index: 2;
         }

@@ -101,17 +101,17 @@
   }
   &__cashback {
     &::before {
-      content: url(../../public/images/icons/cashback.svg);
+      content: url(/images/icons/cashback.svg);
     }
   }
   &__rub {
     &::before {
-      content: url(../../public/images/icons/Rub.svg);
+      content: url(/images/icons/Rub.svg);
     }
   }
   &__present {
     &::before {
-      content: url(../../public/images/icons/present.svg);
+      content: url(/images/icons/present.svg);
     }
   }
 }

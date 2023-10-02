@@ -66,7 +66,7 @@ const Cart = () => {
                   }}
                   className="cart__card-closed"
                 >
-                  <img src="../../../public/images/image/cross.svg" alt="" />
+                  <img src="/images/image/cross.svg" alt="" />
                 </div>
               </div>
             </Fragment>

@@ -1,13 +1,12 @@
-// import React from 'react';
-
 const NotFound = () => {
-    return (
-        <div className="notFound">
-     
-     
-            <img src="../../../public/images/image/kot 4.png" alt="" />
-        </div>
-    );
+  return (
+    <div className="notFound">
+      <div className="container">
+       
+        Такой страницы не существует
+      </div>
+    </div>
+  );
 };
 
 export default NotFound;

@@ -217,7 +217,7 @@ const Form = () => {
       </div>
       <div className="register__right">
         <img
-          src="../../../public/images/image/Login.jpg"
+          src="/images/image/Login.jpg"
           alt="sign in"
         />
         <h3>Sign in to name</h3>

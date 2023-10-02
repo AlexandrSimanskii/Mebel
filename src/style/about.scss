@@ -63,13 +63,13 @@
       }
 
       &-number::before {
-        background-image: url("../../public/images/icons/phone-footer.svg");
+        background-image: url("/images/icons/phone-footer.svg");
       }
       &-mail::before {
-        background-image: url("../../public/images/icons/mail.svg");
+        background-image: url("/images/icons/mail.svg");
       }
       &-insta::before {
-        background-image: url("../../public/images/icons/inst.svg");
+        background-image: url("/images/icons/inst.svg");
       }
       &-adress {
         transform: translate(-1.5rem);
