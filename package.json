@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://alexandrsimanskii.github.io/Mebel/",
   "scripts": {
     "dev": "vite --port 3000",
     "server": "json-server-auth --watch db.json --port 3004",

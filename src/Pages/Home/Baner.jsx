@@ -43,44 +43,44 @@ const Banner = () => {
             >
               <picture>
                 <source
-                  srcSet="/images/image/slider.webp"
+                  srcSet="./images/image/slider.webp"
                   type="image/webp"
                 />
-                <img src="/images/image/slider.jpg" alt="" />
+                <img src="./images/image/slider.jpg" alt="" />
               </picture>
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
-              <img src="/images/image/Main-Img.jpg" alt="" />
+              <img src="./images/image/Main-Img.jpg" alt="" />
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
               <picture>
                 <source
-                  srcSet="/images/image/slider.webp"
+                  srcSet="./images/image/slider.webp"
                   type="image/webp"
                 />
-                <img src="/images/image/slider.jpg" alt="" />
+                <img src="./images/image/slider.jpg" alt="" />
               </picture>
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
-              <img src="/images/image/Main-Img.jpg" alt="" />
+              <img src="./images/image/Main-Img.jpg" alt="" />
             </SwiperSlide>
             <SwiperSlide onClick={() => navigate("/catalog")}>
               <picture>
                 <source
-                  srcSet="/images/image/slider.webp"
+                  srcSet="./images/image/slider.webp"
                   type="image/webp"
                 />
-                <img src="/images/image/slider.jpg" alt="" />
+                <img src="./images/image/slider.jpg" alt="" />
               </picture>
             </SwiperSlide>
           </Swiper>
 
           <div className="myslider__btns">
             <button className="myslider-prev">
-              <img src="/images/icons/Tick2.svg" alt="arrow" />
+              <img src="./images/icons/Tick2.svg" alt="arrow" />
             </button>
             <button className="myslider-next">
-              <img src="/images/icons/Tick2.svg" alt="arrow" />
+              <img src="./images/icons/Tick2.svg" alt="arrow" />
             </button>
           </div>
           <div className="banner__info">
